@@ -1,0 +1,24 @@
+﻿@model IEnumerable<AlMorugWeb.Models.ViewModels.ProductModel>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+@foreach(var item in Model)
+{
+<div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="@item.Gallery[0].URL">
+  <div class="card-body">
+    <h5 class="card-title">@item.ProductName</h5>
+    <p class="card-text">@item.Description</p>
+    <p class="card-title">@item.PhoneNumber</p>
+
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>    
+}
