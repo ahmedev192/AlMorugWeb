@@ -10,6 +10,9 @@ namespace AlMorugWeb.Models.ViewModels
         public string? Description { get; set; }
         public string? PhoneNumber { get; set; }
         public bool IsInternal { get; set; }
+        public string? Location { get; set; }
+        public DateTime CreatedDateTime { get; set; } = DateTime.Now;
+        public int Price { get; set; }
 
         [Display(Name = "Choose the gallery images of your book")]
         [ValidateNever]

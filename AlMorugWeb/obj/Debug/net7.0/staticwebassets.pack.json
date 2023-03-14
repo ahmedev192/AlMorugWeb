@@ -5,12 +5,32 @@
       "PackagePath": "staticwebassets\\AlMorugWeb.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\ahmed\\OneDrive\\Desktop\\AlMorug\\AlMorugWeb\\wwwroot\\css\\bullet.png",
+      "PackagePath": "staticwebassets\\css\\bullet.png"
+    },
+    {
+      "Id": "C:\\Users\\ahmed\\OneDrive\\Desktop\\AlMorug\\AlMorugWeb\\wwwroot\\css\\generic.css",
+      "PackagePath": "staticwebassets\\css\\generic.css"
+    },
+    {
+      "Id": "C:\\Users\\ahmed\\OneDrive\\Desktop\\AlMorug\\AlMorugWeb\\wwwroot\\css\\js-image-slider.css",
+      "PackagePath": "staticwebassets\\css\\js-image-slider.css"
+    },
+    {
       "Id": "C:\\Users\\ahmed\\OneDrive\\Desktop\\AlMorug\\AlMorugWeb\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "C:\\Users\\ahmed\\OneDrive\\Desktop\\AlMorug\\AlMorugWeb\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\ahmed\\OneDrive\\Desktop\\AlMorug\\AlMorugWeb\\wwwroot\\js\\bullet.png",
+      "PackagePath": "staticwebassets\\js\\bullet.png"
+    },
+    {
+      "Id": "C:\\Users\\ahmed\\OneDrive\\Desktop\\AlMorug\\AlMorugWeb\\wwwroot\\js\\js-image-slider.js",
+      "PackagePath": "staticwebassets\\js\\js-image-slider.js"
     },
     {
       "Id": "C:\\Users\\ahmed\\OneDrive\\Desktop\\AlMorug\\AlMorugWeb\\wwwroot\\js\\site.js",
@@ -243,6 +263,10 @@
     {
       "Id": "C:\\Users\\ahmed\\OneDrive\\Desktop\\AlMorug\\AlMorugWeb\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\ahmed\\OneDrive\\Desktop\\AlMorug\\AlMorugWeb\\wwwroot\\uploads\\646e6364-fe55-4714-855a-a2976d6aadb3_dandelion-flower-5120x5120-10489.jpg",
+      "PackagePath": "staticwebassets\\uploads\\646e6364-fe55-4714-855a-a2976d6aadb3_dandelion-flower-5120x5120-10489.jpg"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.AlMorugWeb.Microsoft.AspNetCore.StaticWebAssets.props",

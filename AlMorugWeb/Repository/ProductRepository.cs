@@ -22,6 +22,9 @@ namespace AlMorugWeb.Repository
                 ProductName = model.ProductName,
                 Description = model.Description,
                 IsInternal = model.IsInternal,
+                Location = model.Location,
+                CreatedDateTime= model.CreatedDateTime,
+                Price= model.Price,
             };
 
             newProduct.productGallery = new List<ProductGallery>();
@@ -51,6 +54,9 @@ namespace AlMorugWeb.Repository
                       PhoneNumber= product.PhoneNumber,
                       Description= product.Description,
                       IsInternal = product.IsInternal,
+                      Location = product.Location,
+                      CreatedDateTime = product.CreatedDateTime,
+                      Price = product.Price,
                       Gallery = product.productGallery.Select(g => new GalleryModel()
                       {
                           Id = g.Id,
@@ -71,6 +77,9 @@ namespace AlMorugWeb.Repository
                      ProductName = product.ProductName,
                      Description = product.Description,
                      IsInternal = product.IsInternal,
+                     Location = product.Location,
+                     CreatedDateTime = product.CreatedDateTime,
+                     Price = product.Price,
                      Gallery = product.productGallery.Select(g => new GalleryModel()
                      {
                          Id = g.Id,

@@ -2,6 +2,8 @@ using AlMorugWeb.Data;
 using AlMorugWeb.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using AlMorugWeb.dbInitializer;
+using Microsoft.EntityFrameworkCore.Internal;
 
 namespace AlMorugWeb
 {
@@ -17,8 +19,9 @@ namespace AlMorugWeb
                builder.Configuration.GetConnectionString("DefaultConnection")
                ));
 
-            builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationDbContext>();
+            builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false).AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddScoped<IProductRepository, ProductRepository>();
+            builder.Services.AddScoped<IDbInitializer, DbInitializer>();
             builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
             var app = builder.Build();
@@ -39,7 +42,18 @@ namespace AlMorugWeb
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
+
+            SeedDatabase();
             app.Run();
+            void SeedDatabase()
+            {
+                using (var scope = app.Services.CreateScope())
+                {
+                    var dbInitializer = scope.ServiceProvider.GetRequiredService<IDbInitializer>();
+                    dbInitializer.Initialize();
+
+                }
+            }
         }
     }
 }

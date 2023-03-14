@@ -24,6 +24,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.IsInternal)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDateTime)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -42,6 +48,12 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.IsInternal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedDateTime)
                 </td>
                 <td>
                     <a asp-action="Details" asp-route-id="@item.Id">Details</a> |

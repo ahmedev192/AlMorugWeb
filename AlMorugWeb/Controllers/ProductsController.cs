@@ -140,7 +140,14 @@ namespace AlMorugWeb.Controllers
                 var upload = wwwRootPath + urls[i];
                 if (System.IO.File.Exists(upload))
                 {
-                    System.IO.File.Delete(upload);
+                    try
+                    {
+                        System.GC.Collect();
+                        System.GC.WaitForPendingFinalizers();
+                        System.IO.File.Delete(upload);
+
+                    }
+                    catch(Exception ex ) { }
                 }
 
             }
