@@ -31,11 +31,19 @@ namespace AlMorugWeb.Controllers
         }
 
         // GET: Products
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            return _context.Products != null ?
-                        View(await _context.Products.ToListAsync()) :
-                        Problem("Entity set 'ApplicationDbContext.Products'  is null.");
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                var Data = await _productRepository.Search(searchString);
+                return View(Data);
+            }
+
+            else
+            {
+                var data = await _productRepository.GetAll();
+                return View(data);
+            }
         }
 
         // GET: Products/Details/5

@@ -2,6 +2,7 @@
 using AlMorugWeb.Models.ViewModels;
 using AlMorugWeb.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace AlMorugWeb.Controllers
@@ -18,10 +19,20 @@ namespace AlMorugWeb.Controllers
             _productRepository = productRepository;
         }
 
-        public async Task<ViewResult> Index()
+        public async Task<ViewResult> Index(string searchString)
         {
-           var data = await _productRepository.GetAll();
-            return View(data);
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                var Data = await _productRepository.Search(searchString);
+                return View(Data);
+            }
+
+            else
+            {
+                var data = await _productRepository.GetAll();
+                return View(data);
+            }
+            
         }
 
         public IActionResult Privacy()

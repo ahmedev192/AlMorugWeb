@@ -23,8 +23,8 @@ namespace AlMorugWeb.Repository
                 Description = model.Description,
                 IsInternal = model.IsInternal,
                 Location = model.Location,
-                CreatedDateTime= model.CreatedDateTime,
-                Price= model.Price,
+                CreatedDateTime = model.CreatedDateTime,
+                Price = model.Price,
             };
 
             newProduct.productGallery = new List<ProductGallery>();
@@ -51,8 +51,8 @@ namespace AlMorugWeb.Repository
                   .Select(product => new ProductModel()
                   {
                       ProductName = product.ProductName,
-                      PhoneNumber= product.PhoneNumber,
-                      Description= product.Description,
+                      PhoneNumber = product.PhoneNumber,
+                      Description = product.Description,
                       IsInternal = product.IsInternal,
                       Location = product.Location,
                       CreatedDateTime = product.CreatedDateTime,
@@ -64,6 +64,26 @@ namespace AlMorugWeb.Repository
                           URL = g.URL
                       }).ToList()
                   }).ToListAsync();
+        }
+        public async Task<List<ProductModel>> Search(string searchString)
+        {
+            return await _context.Products.Where(s => s.Description!.Contains(searchString)).Select(product => new ProductModel()
+            {
+                ProductName = product.ProductName,
+                PhoneNumber = product.PhoneNumber,
+                Description = product.Description,
+                IsInternal = product.IsInternal,
+                Location = product.Location,
+                CreatedDateTime = product.CreatedDateTime,
+                Price = product.Price,
+                Gallery = product.productGallery.Select(g => new GalleryModel()
+                {
+                    Id = g.Id,
+                    Name = g.Name,
+                    URL = g.URL
+                }).ToList()
+            }).ToListAsync();
+
         }
 
 

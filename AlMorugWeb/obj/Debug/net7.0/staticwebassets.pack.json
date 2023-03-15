@@ -265,8 +265,16 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "C:\\Users\\ahmed\\OneDrive\\Desktop\\AlMorug\\AlMorugWeb\\wwwroot\\uploads\\646e6364-fe55-4714-855a-a2976d6aadb3_dandelion-flower-5120x5120-10489.jpg",
-      "PackagePath": "staticwebassets\\uploads\\646e6364-fe55-4714-855a-a2976d6aadb3_dandelion-flower-5120x5120-10489.jpg"
+      "Id": "C:\\Users\\ahmed\\OneDrive\\Desktop\\AlMorug\\AlMorugWeb\\wwwroot\\uploads\\0ab1a7ca-b8c8-49bd-a892-8fe7db7e70af_kellen-riggin-U-Xa6K3Rfxk-unsplash.jpg",
+      "PackagePath": "staticwebassets\\uploads\\0ab1a7ca-b8c8-49bd-a892-8fe7db7e70af_kellen-riggin-U-Xa6K3Rfxk-unsplash.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ahmed\\OneDrive\\Desktop\\AlMorug\\AlMorugWeb\\wwwroot\\uploads\\70aabff0-4461-4d3c-a1a2-c2c5136aaefd_lakeside-sunset-deer-minimal-art-landscape-scenic-panorama-3840x2160-4592.png",
+      "PackagePath": "staticwebassets\\uploads\\70aabff0-4461-4d3c-a1a2-c2c5136aaefd_lakeside-sunset-deer-minimal-art-landscape-scenic-panorama-3840x2160-4592.png"
+    },
+    {
+      "Id": "C:\\Users\\ahmed\\OneDrive\\Desktop\\AlMorug\\AlMorugWeb\\wwwroot\\uploads\\85524fe2-58dd-44fe-9ae0-db8e85c4cc58_lakeside-sunset-deer-minimal-art-landscape-scenic-panorama-3840x2160-4592.png",
+      "PackagePath": "staticwebassets\\uploads\\85524fe2-58dd-44fe-9ae0-db8e85c4cc58_lakeside-sunset-deer-minimal-art-landscape-scenic-panorama-3840x2160-4592.png"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.AlMorugWeb.Microsoft.AspNetCore.StaticWebAssets.props",
