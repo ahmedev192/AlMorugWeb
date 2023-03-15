@@ -111,7 +111,64 @@ namespace AlMorugWeb.Controllers
             return View();
         }
 
- 
+
+
+        //GET
+        public async Task<IActionResult> Edit(int id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            var data = await _productRepository.GetProductById(id);
+
+            if (data == null)
+            {
+                return NotFound();
+            }
+
+            return View(data);
+        }
+
+        //POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(ProductModel obj)
+        {
+
+            if (ModelState.IsValid)
+            {
+                if (obj.GalleryFiles != null)
+                {
+                    string folder = "uploads/";
+
+                    obj.Gallery = new List<GalleryModel>();
+
+                    foreach (var file in obj.GalleryFiles)
+                    {
+                        var gallery = new GalleryModel()
+                        {
+                            Name = file.FileName,
+                            URL = await UploadImage(folder, file)
+                        };
+                        obj.Gallery.Add(gallery);
+                    }
+                }
+
+
+
+                _productRepository.Update(obj);
+                return RedirectToAction("Index");
+            }
+            return View(obj);
+        }
+
+
+
+
+
+
+
         // GET: Products/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -143,7 +200,8 @@ namespace AlMorugWeb.Controllers
             var product = await _context.Products.FindAsync(id);
             var prod = await _productRepository.GetProductById(id);
             string[] urls = new string[prod.Gallery.Count()];
-            for (int i = 0 ; i< prod.Gallery.Count() ; i++){
+            for (int i = 0; i < prod.Gallery.Count(); i++)
+            {
                 urls[i] = prod.Gallery[i].URL;
                 var upload = wwwRootPath + urls[i];
                 if (System.IO.File.Exists(upload))
@@ -155,7 +213,7 @@ namespace AlMorugWeb.Controllers
                         System.IO.File.Delete(upload);
 
                     }
-                    catch(Exception ex ) { }
+                    catch (Exception ex) { }
                 }
 
             }
@@ -170,7 +228,7 @@ namespace AlMorugWeb.Controllers
             return RedirectToAction(nameof(Index));
         }
 
- 
+
 
         private async Task<string> UploadImage(string folderPath, IFormFile file)
         {
@@ -182,6 +240,42 @@ namespace AlMorugWeb.Controllers
             await file.CopyToAsync(new FileStream(serverFolder, FileMode.Create));
 
             return "/" + folderPath;
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ClearOldPhotos(int Id)
+        {
+
+            string wwwRootPath = _webHostEnvironment.WebRootPath;
+            var prod = await _productRepository.GetProductById(Id);
+            string[] urls = new string[prod.Gallery.Count()];
+            for (int i = 0; i < prod.Gallery.Count(); i++)
+            {
+                urls[i] = prod.Gallery[i].URL;
+                var upload = wwwRootPath + urls[i];
+                if (System.IO.File.Exists(upload))
+                {
+                    try
+                    {
+                        System.GC.Collect();
+                        System.GC.WaitForPendingFinalizers();
+                        System.IO.File.Delete(upload);
+
+                    }
+                    catch (Exception ex) { }
+                }
+
+            }
+            var x = _context.ProductGallery.Where(u => u.ProductId == Id).ToList();
+            _context.ProductGallery.RemoveRange(x);
+            //_context.ProductGallery.Remove();
+
+            //_context.ProductGallery.RemoveRange(_context.ProductGallery.Where(u => u.ProductId == Id).ToList());
+
+            _context.SaveChangesAsync();
+            return RedirectToAction("Edit", new { id = Id });
+
         }
     }
 }

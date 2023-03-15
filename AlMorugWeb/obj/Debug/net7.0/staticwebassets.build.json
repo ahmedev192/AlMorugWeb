@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "q5iXSvhXWIZhl6rwQpRS9K8huAP0+qhDeJwuLsBasoM=",
+  "Hash": "A6SwGbPhY+wiM4P+m7PM4O7WGb3lkg0Q8aAndQkJiOg=",
   "Source": "AlMorugWeb",
   "BasePath": "_content/AlMorugWeb",
   "Mode": "Default",
@@ -2174,57 +2174,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
-    },
-    {
-      "Identity": "C:\\Users\\ahmed\\OneDrive\\Desktop\\AlMorug\\AlMorugWeb\\wwwroot\\uploads\\0ab1a7ca-b8c8-49bd-a892-8fe7db7e70af_kellen-riggin-U-Xa6K3Rfxk-unsplash.jpg",
-      "SourceId": "AlMorugWeb",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ahmed\\OneDrive\\Desktop\\AlMorug\\AlMorugWeb\\wwwroot\\",
-      "BasePath": "_content/AlMorugWeb",
-      "RelativePath": "uploads/0ab1a7ca-b8c8-49bd-a892-8fe7db7e70af_kellen-riggin-U-Xa6K3Rfxk-unsplash.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\0ab1a7ca-b8c8-49bd-a892-8fe7db7e70af_kellen-riggin-U-Xa6K3Rfxk-unsplash.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\ahmed\\OneDrive\\Desktop\\AlMorug\\AlMorugWeb\\wwwroot\\uploads\\70aabff0-4461-4d3c-a1a2-c2c5136aaefd_lakeside-sunset-deer-minimal-art-landscape-scenic-panorama-3840x2160-4592.png",
-      "SourceId": "AlMorugWeb",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ahmed\\OneDrive\\Desktop\\AlMorug\\AlMorugWeb\\wwwroot\\",
-      "BasePath": "_content/AlMorugWeb",
-      "RelativePath": "uploads/70aabff0-4461-4d3c-a1a2-c2c5136aaefd_lakeside-sunset-deer-minimal-art-landscape-scenic-panorama-3840x2160-4592.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\70aabff0-4461-4d3c-a1a2-c2c5136aaefd_lakeside-sunset-deer-minimal-art-landscape-scenic-panorama-3840x2160-4592.png"
-    },
-    {
-      "Identity": "C:\\Users\\ahmed\\OneDrive\\Desktop\\AlMorug\\AlMorugWeb\\wwwroot\\uploads\\85524fe2-58dd-44fe-9ae0-db8e85c4cc58_lakeside-sunset-deer-minimal-art-landscape-scenic-panorama-3840x2160-4592.png",
-      "SourceId": "AlMorugWeb",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ahmed\\OneDrive\\Desktop\\AlMorug\\AlMorugWeb\\wwwroot\\",
-      "BasePath": "_content/AlMorugWeb",
-      "RelativePath": "uploads/85524fe2-58dd-44fe-9ae0-db8e85c4cc58_lakeside-sunset-deer-minimal-art-landscape-scenic-panorama-3840x2160-4592.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\85524fe2-58dd-44fe-9ae0-db8e85c4cc58_lakeside-sunset-deer-minimal-art-landscape-scenic-panorama-3840x2160-4592.png"
     }
   ]
 }

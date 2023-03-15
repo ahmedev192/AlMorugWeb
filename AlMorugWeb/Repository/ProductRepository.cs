@@ -18,6 +18,7 @@ namespace AlMorugWeb.Repository
         {
             var newProduct = new Product()
             {
+                Id = model.Id,
                 PhoneNumber = model.PhoneNumber,
                 ProductName = model.ProductName,
                 Description = model.Description,
@@ -28,15 +29,19 @@ namespace AlMorugWeb.Repository
             };
 
             newProduct.productGallery = new List<ProductGallery>();
-
-            foreach (var file in model.Gallery)
+            if(model.Gallery != null)
             {
-                newProduct.productGallery.Add(new ProductGallery()
+                foreach (var file in model.Gallery)
                 {
-                    Name = file.Name,
-                    URL = file.URL
-                });
+                    newProduct.productGallery.Add(new ProductGallery()
+                    {
+                        Id = file.Id,
+                        Name = file.Name,
+                        URL = file.URL
+                    });
+                }
             }
+            
 
             await _context.Products.AddAsync(newProduct);
             await _context.SaveChangesAsync();
@@ -45,11 +50,52 @@ namespace AlMorugWeb.Repository
 
         }
 
+
+
+
+
+        public async void Update(ProductModel obj)
+        {
+            var objFromDb = _context.Products.FirstOrDefault(u => u.Id == obj.Id);
+            if (objFromDb != null)
+            {
+                objFromDb.Id= obj.Id;
+                objFromDb.ProductName = obj.ProductName;
+                objFromDb.PhoneNumber   = obj.PhoneNumber;
+                objFromDb.Description = obj.Description;
+                objFromDb.Price = obj.Price;
+                objFromDb.CreatedDateTime = obj.CreatedDateTime;
+                objFromDb.IsInternal= obj.IsInternal;
+                objFromDb.Location = obj.Location;
+
+                objFromDb.productGallery = new List<ProductGallery>();
+
+                if (obj.Gallery !=null)
+                {
+                    foreach (var file in obj.Gallery)
+                    {
+                        objFromDb.productGallery.Add(new ProductGallery()
+                        {
+                            Name = file.Name,
+                            URL = file.URL
+                        });
+                    }
+                }
+
+                 _context.Products.Update(objFromDb);
+                 _context.SaveChangesAsync();
+            }
+        }
+
+
+
+
         public async Task<List<ProductModel>> GetAll()
         {
             return await _context.Products
                   .Select(product => new ProductModel()
                   {
+                      Id= product.Id,
                       ProductName = product.ProductName,
                       PhoneNumber = product.PhoneNumber,
                       Description = product.Description,
@@ -109,6 +155,7 @@ namespace AlMorugWeb.Repository
 
                  }).FirstOrDefaultAsync();
         }
+
 
 
 

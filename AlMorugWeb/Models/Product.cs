@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System.ComponentModel.DataAnnotations;
 
 namespace AlMorugWeb.Models
 {
@@ -12,7 +13,8 @@ namespace AlMorugWeb.Models
         public string? Location { get; set; }
         public int Price { get; set; }
         public DateTime CreatedDateTime { get; set; } = DateTime.Now;
-        public ICollection<ProductGallery> productGallery { get; set; }
+        [ValidateNever]
+        public ICollection<ProductGallery>? productGallery { get; set; }
 
     }
 }

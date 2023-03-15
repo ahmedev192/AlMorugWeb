@@ -14,10 +14,12 @@ namespace AlMorugWeb.Models.ViewModels
         public DateTime CreatedDateTime { get; set; } = DateTime.Now;
         public int Price { get; set; }
 
-        [Display(Name = "Choose the gallery images of your book")]
+        [Display(Name = "Images")]
         [ValidateNever]
-        public IFormFileCollection GalleryFiles { get; set; }
+          
+
+        public IFormFileCollection? GalleryFiles { get; set; } 
         [ValidateNever]
-        public List<GalleryModel> Gallery { get; set; }
+        public List<GalleryModel>? Gallery { get; set; }
     }
 }

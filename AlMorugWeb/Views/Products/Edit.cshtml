@@ -1,0 +1,78 @@
+﻿@model AlMorugWeb.Models.ViewModels.ProductModel
+
+
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-action="Edit" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label asp-for="ProductName" class="control-label"></label>
+                <input asp-for="ProductName" class="form-control" />
+                <span asp-validation-for="ProductName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Location" class="control-label"></label>
+                <input asp-for="Location" class="form-control" />
+                <span asp-validation-for="Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GalleryFiles" class="control-label"></label>
+                <div class="custom-file">
+                    <input asp-for="GalleryFiles" class="custom-file-input" id="customFile" >
+                    <label class="custom-file-label" for="customFile">Choose file</label>
+                </div>
+                <span asp-validation-for="GalleryFiles" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsInternal" /> @Html.DisplayNameFor(model => model.IsInternal)
+                </label>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Edit" class="btn btn-primary" />
+            </div>
+        </form>
+
+
+
+
+    </div>
+</div>
+<form asp-action="ClearOldPhotos" method="post" asp-route-id="@Model.Id">
+    <div class="mx-auto" style="width: 200px;">
+        <button type="submit" >Clear All Old Photos</button>
+
+    </div>
+
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

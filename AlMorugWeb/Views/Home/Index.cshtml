@@ -17,8 +17,16 @@
 @foreach(var item in Model)
 {
 <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="@item.Gallery[0].URL">
-  <div class="card-body">
+        @if (@item.Gallery.Count> 0)
+        {
+            <img class="card-img-top" src="@item.Gallery[0].URL">
+        }
+        else
+        {
+            <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg">
+
+        }
+        <div class="card-body">
     <h5 class="card-title">@item.ProductName</h5>
     <p class="card-text">@item.Description</p>
     <p class="card-title">@item.PhoneNumber</p>
