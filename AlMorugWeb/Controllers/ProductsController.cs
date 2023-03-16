@@ -33,6 +33,7 @@ namespace AlMorugWeb.Controllers
         // GET: Products
         public async Task<IActionResult> Index(string searchString)
         {
+            ViewBag.SearchString = searchString;
             if (!String.IsNullOrEmpty(searchString))
             {
                 var Data = await _productRepository.Search(searchString);

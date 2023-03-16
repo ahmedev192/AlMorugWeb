@@ -24,7 +24,8 @@ namespace AlMorugWeb.Controllers
             if (!String.IsNullOrEmpty(searchString))
             {
                 var Data = await _productRepository.Search(searchString);
-                return View(Data);
+                ViewBag.SearchString = searchString;
+                return View( Data);
             }
 
             else
