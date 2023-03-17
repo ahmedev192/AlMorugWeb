@@ -1056,12 +1056,12 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\lib\jquery\LICENSE.txt))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\244760ba-c9d9-4138-a48a-9b63b95db4b6_pexels-yurii-hlei-1370306.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\1c5c8285-7a1e-4aa5-a400-72a9fd01cad9_3d-background-blue-3840x2160-10876.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>AlMorugWeb</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/AlMorugWeb</BasePath>
-      <RelativePath>uploads/244760ba-c9d9-4138-a48a-9b63b95db4b6_pexels-yurii-hlei-1370306.jpg</RelativePath>
+      <RelativePath>uploads/1c5c8285-7a1e-4aa5-a400-72a9fd01cad9_3d-background-blue-3840x2160-10876.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1070,55 +1070,7 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\244760ba-c9d9-4138-a48a-9b63b95db4b6_pexels-yurii-hlei-1370306.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\27436f9d-8e89-488f-8722-4b1461db5bdb_pexels-христо-георгиев-4115816.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>AlMorugWeb</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/AlMorugWeb</BasePath>
-      <RelativePath>uploads/27436f9d-8e89-488f-8722-4b1461db5bdb_pexels-христо-георгиев-4115816.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\27436f9d-8e89-488f-8722-4b1461db5bdb_pexels-христо-георгиев-4115816.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\caa0aafa-49ef-4ced-ba78-2cddabea79be_pexels-longxiang-qian-1718337.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>AlMorugWeb</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/AlMorugWeb</BasePath>
-      <RelativePath>uploads/caa0aafa-49ef-4ced-ba78-2cddabea79be_pexels-longxiang-qian-1718337.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\caa0aafa-49ef-4ced-ba78-2cddabea79be_pexels-longxiang-qian-1718337.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\ed578613-c0d7-4b7a-9ed9-38dd9e47fd61_pexels-yaroslav-shuraev-1553962.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>AlMorugWeb</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/AlMorugWeb</BasePath>
-      <RelativePath>uploads/ed578613-c0d7-4b7a-9ed9-38dd9e47fd61_pexels-yaroslav-shuraev-1553962.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\ed578613-c0d7-4b7a-9ed9-38dd9e47fd61_pexels-yaroslav-shuraev-1553962.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\1c5c8285-7a1e-4aa5-a400-72a9fd01cad9_3d-background-blue-3840x2160-10876.jpg))</OriginalItemSpec>
     </StaticWebAsset>
   </ItemGroup>
 </Project>

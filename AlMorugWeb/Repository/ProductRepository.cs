@@ -29,7 +29,7 @@ namespace AlMorugWeb.Repository
             };
 
             newProduct.productGallery = new List<ProductGallery>();
-            if(model.Gallery != null)
+            if (model.Gallery != null)
             {
                 foreach (var file in model.Gallery)
                 {
@@ -40,8 +40,9 @@ namespace AlMorugWeb.Repository
                         URL = file.URL
                     });
                 }
+
             }
-            
+
 
             await _context.Products.AddAsync(newProduct);
             await _context.SaveChangesAsync();
@@ -59,23 +60,24 @@ namespace AlMorugWeb.Repository
             var objFromDb = _context.Products.FirstOrDefault(u => u.Id == obj.Id);
             if (objFromDb != null)
             {
-                objFromDb.Id= obj.Id;
+                objFromDb.Id = obj.Id;
                 objFromDb.ProductName = obj.ProductName;
-                objFromDb.PhoneNumber   = obj.PhoneNumber;
+                objFromDb.PhoneNumber = obj.PhoneNumber;
                 objFromDb.Description = obj.Description;
                 objFromDb.Price = obj.Price;
                 objFromDb.CreatedDateTime = obj.CreatedDateTime;
-                objFromDb.IsInternal= obj.IsInternal;
+                objFromDb.IsInternal = obj.IsInternal;
                 objFromDb.Location = obj.Location;
 
                 objFromDb.productGallery = new List<ProductGallery>();
 
-                if (obj.Gallery !=null)
+                if (obj.Gallery != null)
                 {
                     foreach (var file in obj.Gallery)
                     {
                         objFromDb.productGallery.Add(new ProductGallery()
                         {
+                            Id = file.Id,
                             Name = file.Name,
                             URL = file.URL
                         });
@@ -83,7 +85,7 @@ namespace AlMorugWeb.Repository
                 }
 
                  _context.Products.Update(objFromDb);
-                 _context.SaveChangesAsync();
+                 _context.SaveChanges();
             }
         }
 
@@ -95,7 +97,7 @@ namespace AlMorugWeb.Repository
             return await _context.Products
                   .Select(product => new ProductModel()
                   {
-                      Id= product.Id,
+                      Id = product.Id,
                       ProductName = product.ProductName,
                       PhoneNumber = product.PhoneNumber,
                       Description = product.Description,
@@ -113,8 +115,9 @@ namespace AlMorugWeb.Repository
         }
         public async Task<List<ProductModel>> Search(string searchString)
         {
-            return await _context.Products.Where(s => s.Description!.Contains(searchString)).Select(product => new ProductModel()
+            return await _context.Products.Where(s => s.Description!.Contains(searchString) || s.ProductName!.Contains(searchString) ).Select(product => new ProductModel()
             {
+                Id = product.Id,
                 ProductName = product.ProductName,
                 PhoneNumber = product.PhoneNumber,
                 Description = product.Description,
@@ -157,8 +160,44 @@ namespace AlMorugWeb.Repository
         }
 
 
+        public List<ProductModel> Sort(List<ProductModel> data, string? orderby = null)
+        {
+            switch (orderby)
+            {
+                case "n_a":
+                    return data.OrderBy(data => data.ProductName).ToList();
+                case "n_d":
+                    return data.OrderByDescending(data => data.ProductName).ToList();
+                case "p_a":
+                    return data.OrderBy(data => data.Price).ToList();
+                case "p_d":
+                    return data.OrderByDescending(data => data.Price).ToList();
+                case "t_a":
+                    return data.OrderBy(data => data.CreatedDateTime).ToList();
+                case "ph_d":
+                    return data.OrderByDescending(data => data.PhoneNumber).ToList();
+                case "ph_a":
+                    return data.OrderBy(data => data.PhoneNumber).ToList();
+                case "t_d":
+                    return data.OrderByDescending(data => data.CreatedDateTime).ToList();
+                case "i_a":
+                    return data.OrderBy(data => data.IsInternal).ToList();
+                case "i_d":
+                    return data.OrderByDescending(data => data.IsInternal).ToList();
+                case "d_a":
+                    return data.OrderBy(data => data.Description).ToList();
+                case "d_d":
+                    return data.OrderByDescending(data => data.Description).ToList();
 
 
+
+                default:
+                    return data;
+
+            }
+
+        }
 
     }
+
 }

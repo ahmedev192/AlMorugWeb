@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "uit1VsaG8b++GjxoNKjiJ3U3kAUmYNImej57/v/olq0=",
+  "Hash": "4qi4HQkGyczR/lvkPgl99xQWPPjGrCTMql7dGLcY/vs=",
   "Source": "AlMorugWeb",
   "BasePath": "_content/AlMorugWeb",
   "Mode": "Default",
@@ -2176,12 +2176,12 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Identity": "C:\\Users\\ahmed\\OneDrive\\Desktop\\AlMorug\\AlMorugWeb\\wwwroot\\uploads\\244760ba-c9d9-4138-a48a-9b63b95db4b6_pexels-yurii-hlei-1370306.jpg",
+      "Identity": "C:\\Users\\ahmed\\OneDrive\\Desktop\\AlMorug\\AlMorugWeb\\wwwroot\\uploads\\1c5c8285-7a1e-4aa5-a400-72a9fd01cad9_3d-background-blue-3840x2160-10876.jpg",
       "SourceId": "AlMorugWeb",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ahmed\\OneDrive\\Desktop\\AlMorug\\AlMorugWeb\\wwwroot\\",
       "BasePath": "_content/AlMorugWeb",
-      "RelativePath": "uploads/244760ba-c9d9-4138-a48a-9b63b95db4b6_pexels-yurii-hlei-1370306.jpg",
+      "RelativePath": "uploads/1c5c8285-7a1e-4aa5-a400-72a9fd01cad9_3d-background-blue-3840x2160-10876.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2190,58 +2190,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\244760ba-c9d9-4138-a48a-9b63b95db4b6_pexels-yurii-hlei-1370306.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\ahmed\\OneDrive\\Desktop\\AlMorug\\AlMorugWeb\\wwwroot\\uploads\\27436f9d-8e89-488f-8722-4b1461db5bdb_pexels-христо-георгиев-4115816.jpg",
-      "SourceId": "AlMorugWeb",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ahmed\\OneDrive\\Desktop\\AlMorug\\AlMorugWeb\\wwwroot\\",
-      "BasePath": "_content/AlMorugWeb",
-      "RelativePath": "uploads/27436f9d-8e89-488f-8722-4b1461db5bdb_pexels-христо-георгиев-4115816.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\27436f9d-8e89-488f-8722-4b1461db5bdb_pexels-христо-георгиев-4115816.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\ahmed\\OneDrive\\Desktop\\AlMorug\\AlMorugWeb\\wwwroot\\uploads\\caa0aafa-49ef-4ced-ba78-2cddabea79be_pexels-longxiang-qian-1718337.jpg",
-      "SourceId": "AlMorugWeb",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ahmed\\OneDrive\\Desktop\\AlMorug\\AlMorugWeb\\wwwroot\\",
-      "BasePath": "_content/AlMorugWeb",
-      "RelativePath": "uploads/caa0aafa-49ef-4ced-ba78-2cddabea79be_pexels-longxiang-qian-1718337.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\caa0aafa-49ef-4ced-ba78-2cddabea79be_pexels-longxiang-qian-1718337.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\ahmed\\OneDrive\\Desktop\\AlMorug\\AlMorugWeb\\wwwroot\\uploads\\ed578613-c0d7-4b7a-9ed9-38dd9e47fd61_pexels-yaroslav-shuraev-1553962.jpg",
-      "SourceId": "AlMorugWeb",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ahmed\\OneDrive\\Desktop\\AlMorug\\AlMorugWeb\\wwwroot\\",
-      "BasePath": "_content/AlMorugWeb",
-      "RelativePath": "uploads/ed578613-c0d7-4b7a-9ed9-38dd9e47fd61_pexels-yaroslav-shuraev-1553962.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\ed578613-c0d7-4b7a-9ed9-38dd9e47fd61_pexels-yaroslav-shuraev-1553962.jpg"
+      "OriginalItemSpec": "wwwroot\\uploads\\1c5c8285-7a1e-4aa5-a400-72a9fd01cad9_3d-background-blue-3840x2160-10876.jpg"
     }
   ]
 }

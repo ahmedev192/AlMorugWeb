@@ -19,22 +19,27 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ProductName)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.ProductName)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["DescParm"]">@Html.DisplayNameFor(model => model.Description)</a>
+
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PhoneNumber)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["PhoneParm"]">@Html.DisplayNameFor(model => model.PhoneNumber)</a>
+
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IsInternal)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["InternalParm"]">@Html.DisplayNameFor(model => model.IsInternal)</a>
+
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Price)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["PriceParm"]">@Html.DisplayNameFor(model => model.Price)</a>
+
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CreatedDateTime)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]">@Html.DisplayNameFor(model => model.CreatedDateTime)</a>
+
             </th>
             <th></th>
         </tr>
