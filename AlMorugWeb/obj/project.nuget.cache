@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "2zw8ErnVx4eakiIVW6ms16jteOIH90WkFxt2+Y+2UL+qj9WLk7Tg2xAPVSnLnxUVOXfxNj9/y1O9FDZcHgouGw==",
+  "dgSpecHash": "c6J6g9xKgl6dYR9KDreFqWqGHQj8uV3ys1r4/sVya4nOOp4G1k4fCYpsbeEnQKI7U+kpcWPqvP+1A6qlMuM8Nw==",
   "success": true,
   "projectFilePath": "C:\\Users\\ahmed\\OneDrive\\Desktop\\AlMorug\\AlMorugWeb\\AlMorugWeb.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ahmed\\.nuget\\packages\\aspose.imaging\\23.2.0\\aspose.imaging.23.2.0.nupkg.sha512",
     "C:\\Users\\ahmed\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\ahmed\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\ahmed\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

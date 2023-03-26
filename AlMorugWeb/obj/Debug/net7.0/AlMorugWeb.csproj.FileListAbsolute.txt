@@ -580,3 +580,4 @@ C:\Users\ahmed\OneDrive\Desktop\AlMorug\AlMorugWeb\bin\Debug\net7.0\refs\System.
 C:\Users\ahmed\OneDrive\Desktop\AlMorug\AlMorugWeb\bin\Debug\net7.0\refs\WindowsBase.dll
 C:\Users\ahmed\OneDrive\Desktop\AlMorug\AlMorugWeb\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
 C:\Users\ahmed\OneDrive\Desktop\AlMorug\AlMorugWeb\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.dll
+C:\Users\ahmed\OneDrive\Desktop\AlMorug\AlMorugWeb\bin\Debug\net7.0\Aspose.Imaging.dll

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4qi4HQkGyczR/lvkPgl99xQWPPjGrCTMql7dGLcY/vs=",
+  "Hash": "3b1Mnp7PRTjLYhkr8CIum+TaXTq8a6yoHvlEEkFSlyQ=",
   "Source": "AlMorugWeb",
   "BasePath": "_content/AlMorugWeb",
   "Mode": "Default",
@@ -2176,12 +2176,12 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Identity": "C:\\Users\\ahmed\\OneDrive\\Desktop\\AlMorug\\AlMorugWeb\\wwwroot\\uploads\\1c5c8285-7a1e-4aa5-a400-72a9fd01cad9_3d-background-blue-3840x2160-10876.jpg",
+      "Identity": "C:\\Users\\ahmed\\OneDrive\\Desktop\\AlMorug\\AlMorugWeb\\wwwroot\\uploads\\93d9563e-12eb-4f9a-a100-cd2309222a98_goonies-morning-sunrise-silhouette-minimal-art-landscape-4637x1935-4597.png",
       "SourceId": "AlMorugWeb",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ahmed\\OneDrive\\Desktop\\AlMorug\\AlMorugWeb\\wwwroot\\",
       "BasePath": "_content/AlMorugWeb",
-      "RelativePath": "uploads/1c5c8285-7a1e-4aa5-a400-72a9fd01cad9_3d-background-blue-3840x2160-10876.jpg",
+      "RelativePath": "uploads/93d9563e-12eb-4f9a-a100-cd2309222a98_goonies-morning-sunrise-silhouette-minimal-art-landscape-4637x1935-4597.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2190,7 +2190,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\1c5c8285-7a1e-4aa5-a400-72a9fd01cad9_3d-background-blue-3840x2160-10876.jpg"
+      "OriginalItemSpec": "wwwroot\\uploads\\93d9563e-12eb-4f9a-a100-cd2309222a98_goonies-morning-sunrise-silhouette-minimal-art-landscape-4637x1935-4597.png"
     }
   ]
 }
