@@ -1,0 +1,207 @@
+﻿@model IEnumerable<AlMorugWeb.Models.ViewModels.ProductModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+@*
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<form asp-controller="Products" asp-action="Index" method="get">
+    <p>
+        Title: <input type="text" name="SearchString" value="@ViewBag.SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.ProductName)</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["DescParm"]">@Html.DisplayNameFor(model => model.Description)</a>
+
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["PhoneParm"]">@Html.DisplayNameFor(model => model.PhoneNumber)</a>
+
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["InternalParm"]">@Html.DisplayNameFor(model => model.IsInternal)</a>
+
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["PriceParm"]">@Html.DisplayNameFor(model => model.Price)</a>
+
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]">@Html.DisplayNameFor(model => model.CreatedDateTime)</a>
+
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsInternal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedDateTime)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+*@
+
+<link rel="stylesheet" href="~/css/our projects.css" />
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+<!--  search bar  -->
+<div class="search-container">
+     <form asp-controller="Home" asp-action="RealState" method="get">
+        <input type="text" name="SearchString" value="@ViewBag.SearchString" placeholder="Search...">
+        <button type="submit" value="Filter"><i class="fa fa-search"></i></button>
+    </form>
+</div>
+
+<div class="glass" id="galssSlider">
+    <button class="close-btn" id="colse">&times;</button>
+
+    <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper" id="imgescontainer">
+            <!-- Slides -->
+            <div class="swiper-slide"><img src="~/Images/pic1.jpg" alt="" /></div>
+            <div class="swiper-slide">
+                <img src="~/Images/FpFbmaHXsAA044e.jpg" alt="" />
+            </div>
+            <div class="swiper-slide">
+                <img src="~/Images/mh-mabany-slide02.jpg" alt="" />
+            </div>
+
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+</div>
+
+
+
+<div class="product-row">
+    @foreach (var item in Model)
+    {
+        <div class="product">
+            <div class="product-image">
+                <div class="swiper">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        @if (@item.Gallery.Count() > 0)
+                        {
+                            @for (int i = 0; i < @item.Gallery.Count(); i++)
+                            {
+                                <div class="swiper-slide"><img src="@item.Gallery[i].URL" alt="" /></div>
+                            }
+
+                        }
+                        else
+                        {
+                            <div class="swiper-slide"><img src="~/Images/FpFbmaHXsAA044e.jpg" alt="" /></div>
+
+                        }
+                    </div>
+                    <!-- If we need pagination -->
+                    <div class="swiper-pagination"></div>
+
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+            <div class="product-info">
+                <h2 class="product-name">
+                    @item.ProductName
+
+                </h2>
+                <p class="product-phone">Phone: @item.PhoneNumber</p>
+                <p class="product-description">
+                    @item.Description
+
+                </p>
+                @item.ProductName
+                <p class="product-price">
+                    $
+                    @item.Price
+
+                </p>
+                <div class="product-buttons">
+                    <a href="
+                @item.Location"><button class="product-button-location">Go to Location</button></a>
+                    <button id="showptn" class="product-button-show">Show</button>
+                </div>
+            </div>
+        </div>
+
+    }
+
+
+
+
+</div>
+
+<script src="~/js/our projects.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script>
+    const swiper = new Swiper(".swiper", {
+        // Optional parameters
+        autoplay: {
+            delay: 2000,
+            disableOnInteraction: false,
+        },
+        loop: true,
+
+        // If we need pagination
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+
+        // Navigation arrows
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+</script>

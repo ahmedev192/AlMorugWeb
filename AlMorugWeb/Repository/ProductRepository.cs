@@ -92,10 +92,10 @@ namespace AlMorugWeb.Repository
 
 
 
-        public async Task<List<ProductModel>> GetAll()
+        public async Task<List<ProductModel>> GetAll(bool intern)
         {
             return await _context.Products
-                  .Select(product => new ProductModel()
+                  .Where(u=>u.IsInternal== intern).Select(product => new ProductModel()
                   {
                       Id = product.Id,
                       ProductName = product.ProductName,

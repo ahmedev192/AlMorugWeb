@@ -33,32 +33,7 @@ namespace AlMorugWeb.Controllers
         }
 
         // GET: Products
-        public async Task<IActionResult> Index(string searchString, string sortOrder)
-        {
-            ViewData["NameSortParm"] = sortOrder == "n_a" ? "n_d" : "n_a";
-            ViewData["DateSortParm"] = sortOrder == "t_a" ? "t_d" : "t_a";
-            ViewData["PriceParm"] = sortOrder == "p_d" ? "p_a" : "p_d";
-            ViewData["PhoneParm"] = sortOrder == "ph_d" ? "ph_a" : "ph_d";
-            ViewData["InternalParm"] = sortOrder == "i_d" ? "i_a" : "i_d";
-            ViewData["DescParm"] = sortOrder == "d_d" ? "d_a" : "d_d";
-
-            ViewBag.SearchString = searchString;
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                ViewBag.SearchString = searchString;
-                var Data = await _productRepository.Search(searchString);
-                var model = _productRepository.Sort(Data, sortOrder);
-                return View(model);
-            }
-
-            else
-            {
-                var data = await _productRepository.GetAll();
-                var model = _productRepository.Sort(data, sortOrder);
-
-                return View(model);
-            }
-        }
+       
 
         // GET: Products/Details/5
         public async Task<IActionResult> Details(int id)
@@ -125,7 +100,7 @@ namespace AlMorugWeb.Controllers
             int id = await _productRepository.AddNewBook(productModel);
             if (id > 0)
             {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index) , "Home");
             }
         }
 
@@ -179,7 +154,7 @@ namespace AlMorugWeb.Controllers
 
 
             _productRepository.Update(obj);
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Home");
         }
         return View(obj);
     }
@@ -259,10 +234,10 @@ namespace AlMorugWeb.Controllers
             //.
             string path = Path.Combine(_webHostEnvironment.WebRootPath, folderPath);
             Image image = Image.FromStream(file.OpenReadStream(), true, true);
-            var newImage = new Bitmap(700, 500);
+            var newImage = new Bitmap(700, 600);
             using (var a = Graphics.FromImage(newImage))
             {
-                a.DrawImage(image, 0, 0, 700, 300);
+                a.DrawImage(image, 0, 0, 700, 600);
                 newImage.Save(path);
             }
 

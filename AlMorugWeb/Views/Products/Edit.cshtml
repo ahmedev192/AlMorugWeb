@@ -3,6 +3,14 @@
 
 
 
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+
+
 <div class="row">
     <div class="col-md-4">
         <form method="post" asp-action="Edit" enctype="multipart/form-data">
@@ -76,3 +84,6 @@
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 }
+
+
+ 
