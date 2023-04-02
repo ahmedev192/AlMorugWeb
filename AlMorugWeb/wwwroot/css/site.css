@@ -8,6 +8,12 @@ body {
     background-color: #202123;
 }
 
+#logout{
+    margin-left: auto;
+}
+
+#manage{
+}
 nav {
     background-color: #202123;
     color: #fff;
@@ -23,7 +29,7 @@ nav {
     }
 
         nav ul li {
-            margin-right: 1rem;
+            margin-left: 2.3rem;
         }
 
             nav ul li:last-child {
@@ -461,4 +467,9 @@ nav {
         margin: 30% 0 0 7% !important;
         line-height: 1.4;
     }
+}
+
+
+html {
+    scroll-behavior: smooth;
 }

@@ -10,38 +10,37 @@
     <title>@ViewData["Title"] - AlMorugWeb</title>
     @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/add.css" />
 
     @*<link rel="stylesheet" href="~/AlMorugWeb.styles.css" asp-append-version="true" />*@
 </head>
 <body>
     <header>
-      @*  <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">AlMorugWeb</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        @if (SignInManager.IsSignedIn(User))
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="Index">Products</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" id="register" asp-area="Identity" asp-page="/Account/Register">Add Admin</a>
-                            </li>
-                        }
-                    </ul>
-                    <partial name="_LoginPartial" />
+        @*  <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">AlMorugWeb</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+        <ul class="navbar-nav flex-grow-1">
+        <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+        </li>
+        @if (SignInManager.IsSignedIn(User))
+        {
+        <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="Index">Products</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link text-dark" id="register" asp-area="Identity" asp-page="/Account/Register">Add Admin</a>
+        </li>
+        }
+        </ul>
+        <partial name="_LoginPartial" />
 
-                </div>
-            </div>
+        </div>
+        </div>
         </nav>*@
         <nav>
             <div class="logo">
@@ -52,12 +51,16 @@
             <ul class="" id="navBar">
                 <li><a asp-controller="Home" asp-action="Index">Home</a></li>
                 @if (SignInManager.IsSignedIn(User))
-                        {
-                <li><a  asp-controller="Products" asp-action="Create">Add</a></li>
-                        }
+                {
+                    <li><a asp-controller="Products" asp-action="Index">Admin Panel</a></li>
+                    <li >
+                        <a  id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                    </li>
+
+                }
                 <li><a asp-controller="Home" asp-action="Projects">Projects</a></li>
                 <li><a asp-controller="Home" asp-action="RealState">Real Estat</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="@Url.Action("Index", "Home")#social">Contact Us</a></li>
                 <partial name="_LoginPartial" />
 
             </ul>
@@ -75,7 +78,7 @@
         </main>
     </div>
 
-   
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

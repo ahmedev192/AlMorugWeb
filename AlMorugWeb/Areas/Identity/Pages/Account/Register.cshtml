@@ -4,9 +4,14 @@
     ViewData["Title"] = "Register";
 }
 
-<h1>@ViewData["Title"]</h1>
 
-<div class="row">
+<link rel="stylesheet" href="~/css/newAdmin.css">
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-7zoitj17DUgOc3LryFLW01G0SSR41jKUsA7MzyzrJysHxvNIPwkqbP+q3GMIHNF9XhF1Rksl/iv+U8rJyNlUnw==" crossorigin="anonymous" />
+
+
+@*<div class="row">
     <div class="col-md-4">
         <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
             <h2>Create a new account.</h2>
@@ -30,37 +35,70 @@
             <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
         </form>
     </div>
-    <div class="col-md-6 col-md-offset-2">
-        <section>
-            <h3>Use another service to register.</h3>
-            <hr />
-            @{
-                if ((Model.ExternalLogins?.Count ?? 0) == 0)
-                {
-                    <div>
-                        <p>
-                            There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">article
-                            about setting up this ASP.NET application to support logging in via external services</a>.
-                        </p>
-                    </div>
-                }
-                else
-                {
-                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                        <div>
-                            <p>
-                                @foreach (var provider in Model.ExternalLogins!)
-                                {
-                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                                }
-                            </p>
-                        </div>
-                    </form>
-                }
-            }
-        </section>
-    </div>
+    
 </div>
+
+
+*@
+
+
+<div class="login-box">
+    <h2>Create New Account</h2>
+    <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+
+        <div class="user-box">
+            <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+            <label asp-for="Input.Email">Email</label>
+            <span asp-validation-for="Input.Email" class="text-danger"></span>
+        </div>
+
+        <div class="user-box">
+            <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+            <label asp-for="Input.Password">Password</label>
+            <span asp-validation-for="Input.Password" class="text-danger"></span>
+        </div>
+
+        <div class="user-box">
+            <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+            <label asp-for="Input.ConfirmPassword">Confirm Password</label>
+            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+        </div>
+
+
+        <button id="registerSubmit" type="submit" class="button">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Register
+        </button>
+
+
+        <div class="social-icons">
+            <a href="https://www.facebook.com/IqAlmorug">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://twitter.com/IqAlmorug">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.instagram.com/iqalmorug">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com/Almorugcompany">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://maps.app.goo.gl/qeEBGGtcQMguJELE8">
+                <i class="fa fa-map-marker"></i>
+            </a>
+            <a href="https://wa.me/+995595521037">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+
+    </form>
+</div>
+
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

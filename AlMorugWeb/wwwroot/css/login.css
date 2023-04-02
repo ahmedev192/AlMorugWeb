@@ -2,68 +2,71 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-  body {
+}
+
+body {
     height: 100vh;
-    display: flex;
     justify-content: center;
     align-items: center;
     background-color: #202123;
-  }
-  
-  .login-box {
-    width: 400px;
+}
+
+.login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
     background-color: #FECE3E;
     border-radius: 5px;
-    padding: 40px;
+    padding: 4%;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .login-box h2 {
-    font-weight: bold;
-    color: #202123;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .login-box form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .user-box {
+}
+
+    .login-box h2 {
+        font-weight: bold;
+        color: #202123;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .login-box form {
+        display: flex;
+        flex-direction: column;
+    }
+
+.user-box {
     position: relative;
     margin-bottom: 20px;
-  }
-  
-  .user-box input {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    outline: none;
-    font-size: 18px;
-    background-color:#202123 ;
-    color: #FECE3E;
-  }
-  
-  .user-box label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: #FECE3E;
-    pointer-events: none;
-    transition: all 0.5s ease;
-  }
-  
-  .user-box input:focus ~ label,
-  .user-box input:valid ~ label {
-    top: -20px;
-    font-size: 14px;
-    color: #202123;
-  }
-  
-  .button {
+}
+
+    .user-box input {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        outline: none;
+        font-size: 18px;
+        background-color: #202123;
+        color: #FECE3E;
+    }
+
+    .user-box label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: #FECE3E;
+        pointer-events: none;
+        transition: all 0.5s ease;
+    }
+
+    .user-box input:focus ~ label,
+    .user-box input:valid ~ label {
+        top: -20px;
+        font-size: 14px;
+        color: #202123;
+    }
+
+.button {
     display: inline-block;
     position: relative;
     padding: 12px 36px;
@@ -77,127 +80,80 @@
     cursor: pointer;
     transition: all 0.5s ease;
     overflow: hidden;
-  }
-  
-  .button:hover {
-    color: #202123;
-    background-color: #FECE3E;
-  }
-  
-  .button span {
-    position: absolute;
-    display: block;
-  }
-  
-  .button span:nth-child(1) {
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 2px;
-    background-color: #FECE3E;
-    animation: animate1 1s linear infinite;
-  }
-  
-  @keyframes animate1 {
+}
+
+    .button:hover {
+        color: #202123;
+        background-color: #FECE3E;
+    }
+
+    .button span {
+        position: absolute;
+        display: block;
+    }
+
+        .button span:nth-child(1) {
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background-color: #FECE3E;
+            animation: animate1 1s linear infinite;
+        }
+
+@keyframes animate1 {
     0% {
-      left: -100%;
-      color: #FECE3E;
+        left: -100%;
+        color: #FECE3E;
     }
-    50%,
-    100% {
-      left: 100%;
-      color: #FECE3E;
+
+    50%, 100% {
+        left: 100%;
+        color: #FECE3E;
     }
-  }
-  
-  .button span:nth-child(2) {
+}
+
+.button span:nth-child(2) {
     top: -100
-  }  
-
-  .social-icons{
-    width: 30%;
-    height: 8%;
-    margin-top: 30%;
-    margin-left: -30%;
-  }
-.social-icons a {
-
-  display: inline-block;
-  margin-right: 10px;
-  font-size: 30px;
-  color: #FFF;
-  transition: all 0.3s ease;
-  margin: 5% 0 0 8%;
-  z-index: 999;
 }
 
-.social-icons a:hover {
-  color: gold;
-  transform: scale(1.4);
+.social-icons {
+    display: flex;
+    margin-top: 8%;
 }
 
-.logo {
-  transition: all 0.3s ease;
-  cursor: pointer;
-  margin: -30% -17% 0 0;
-}
+    .social-icons a {
+        color: #FFF;
+        transition: all 0.3s ease;
+        margin: auto;
+        font-size: 4.5vh;
+    }
 
-
-.logo img {
-  width: 80px;
-  object-fit: contain;
-  transition: all 0.3s ease;
-}
-
-
-.logo:hover img {
-  transform: scale(1.2);
-}
+        .social-icons a:hover {
+            color: #202123;
+            transform: scale(1.4);
+        }
 
 
 @media only screen and (max-width: 768px) {
 
-  
-  .social-icons{
-    width: 30%;
-    height: 8%;
-    margin-top: 100%;
-    margin-left: -60%;
-    display: flex;
-  }
+    .login-box {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 70%;
+        background-color: #FECE3E;
+        border-radius: 5px;
+        padding: 4%;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
 
-  .social-icons a {
-    display: inline-block;
-    margin-right: 10px;
-    font-size: 30px;
-    color: #FFF;
-    transition: all 0.3s ease;
-    margin: 15% 30% 0% -25%;
-    z-index: 999;
-  }
-  
-  .social-icons a:hover {
-    color: gold;
-    transform: scale(1.4);
-  }
-  
-  .logo {
-    transition: all 0.3s ease;
-    cursor: pointer;
-    margin: -100% -62% 0 0;
-  }
-  
-  
-  .logo img {
-    width: 80px;
-    object-fit: contain;
-    transition: all 0.3s ease;
-  }
-  
-  
-  .logo:hover img {
-    transform: scale(1.2);
-  }
-  
-
+    .social-icons a {
+        font-size: 3.5vh;
+        color: #FFF;
+        transition: all 0.3s ease;
+        margin-right: 4%;
+        margin: auto;
+    }
 }

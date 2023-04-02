@@ -33,7 +33,32 @@ namespace AlMorugWeb.Controllers
         }
 
         // GET: Products
-       
+        public async Task<IActionResult> Index(string searchString, string sortOrder)
+        {
+            ViewData["NameSortParm"] = sortOrder == "n_a" ? "n_d" : "n_a";
+            ViewData["DateSortParm"] = sortOrder == "t_a" ? "t_d" : "t_a";
+            ViewData["PriceParm"] = sortOrder == "p_d" ? "p_a" : "p_d";
+            ViewData["PhoneParm"] = sortOrder == "ph_d" ? "ph_a" : "ph_d";
+            ViewData["InternalParm"] = sortOrder == "i_d" ? "i_a" : "i_d";
+            ViewData["DescParm"] = sortOrder == "d_d" ? "d_a" : "d_d";
+
+            ViewBag.SearchString = searchString;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                ViewBag.SearchString = searchString;
+                var Data = await _productRepository.Search(searchString);
+                var model = _productRepository.Sort(Data, sortOrder);
+                return View(model);
+            }
+
+            else
+            {
+                var data = await _productRepository.GetAllAdmin();
+                var model = _productRepository.Sort(data, sortOrder);
+
+                return View(model);
+            }
+        }
 
         // GET: Products/Details/5
         public async Task<IActionResult> Details(int id)

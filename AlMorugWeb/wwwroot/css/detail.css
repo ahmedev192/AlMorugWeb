@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: none;
+    font-family: Arial, sans-serif;
+    background-color: #202123;
+    color: #FECE3E;
+  }
+
+  h1 {
+    font-size: 4.8vh;
+    font-weight: bold;
+    margin: 0;
+    padding: 1.5vh;
+  }
+
+  .product-details {
+    max-width: 115vh;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 15px;
+    padding: 3vh;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    margin-top: 10vh;
+  }
+
+
+  .product-description {
+    font-size: 2.7vh;
+    line-height: 1.5;
+    letter-spacing: 0.2vh;
+  }
+
+  .product-description p {
+    margin: 1vh 0;
+  }
+  .price{
+    font-size: 4vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .slider{
+      margin: 0 auto;
+    height: 65vh;
+    width: 85%;
+    background-color: #202123;
+  }
+  .swiper{
+    height: 60vh;
+    width: 100%;
+  }
+  .swiper img{
+    height: 100%;
+    object-fit: cover;
+  }

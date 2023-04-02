@@ -69,6 +69,10 @@
     </div>
 }
 *@
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-7zoitj17DUgOc3LryFLW01G0SSR41jKUsA7MzyzrJysHxvNIPwkqbP+q3GMIHNF9XhF1Rksl/iv+U8rJyNlUnw==" crossorigin="anonymous" />
+
 <!-- start of body secation -->
 <div class="body">
     <!-- left secation  -->
@@ -93,9 +97,10 @@
     <div class="glass">
         <h1>Al-Morug Company</h1>
         <h2>for real estates and <br />investment in Georgia</h2>
-        <button class="btn">Go To Market</button>
+        <a asp-controller="Home" asp-action="Projects"><button class="btn">Projects</button></a>
+        <a asp-controller="Home" asp-action="RealState"><button class="btn">Real State</button></a>
         <span id="Contact">Contact Us : </span>
-        <div class="social-icons">
+        <div id="social" class="social-icons">
             <a href="https://www.facebook.com/IqAlmorug">
                 <i class="fab fa-facebook-f"></i>
             </a>
@@ -105,7 +110,7 @@
             <a href="https://www.instagram.com/iqalmorug">
                 <i class="fab fa-instagram"></i>
             </a>
-            <a href="https://www.youtube.com/Almorugcompany">
+            <a href="https://www.youtube.com/@@Almorugcompany">
                 <i class="fab fa-youtube"></i>
             </a>
             <a href="https://maps.app.goo.gl/qeEBGGtcQMguJELE8">
@@ -116,6 +121,8 @@
             </a>
         </div>
     </div>
+
+</div>
 
     <div class="investment">
         <h3>Development investment and real estate</h3>

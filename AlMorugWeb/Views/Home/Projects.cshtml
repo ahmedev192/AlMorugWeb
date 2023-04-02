@@ -77,7 +77,7 @@
 </table>
 *@
 
-<link rel="stylesheet" href="~/css/our projects.css" />
+<link rel="stylesheet" href="~/css/StyleSheet.css" />
 
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
@@ -114,6 +114,12 @@
         <!-- If we need navigation buttons -->
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
+        <div class="discription-contaner">
+            <p class="discription">
+                Lorem
+
+            </p>
+        </div>
     </div>
 </div>
 
@@ -157,7 +163,16 @@
                 </h2>
                 <p class="product-phone">Phone: @item.PhoneNumber</p>
                 <p class="product-description">
-                    @item.Description
+                    @if (item.Description.Length >= 170)
+                    {
+                        @item.Description.ToString().Substring(0, 170)
+
+                    }
+                    else
+                    {
+                        @item.Description
+
+                    }
 
                 </p>
                 @item.ProductName

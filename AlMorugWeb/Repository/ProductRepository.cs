@@ -113,6 +113,27 @@ namespace AlMorugWeb.Repository
                       }).ToList()
                   }).ToListAsync();
         }
+        public async Task<List<ProductModel>> GetAllAdmin()
+        {
+            return await _context.Products
+                  .Select(product => new ProductModel()
+                  {
+                      Id = product.Id,
+                      ProductName = product.ProductName,
+                      PhoneNumber = product.PhoneNumber,
+                      Description = product.Description,
+                      IsInternal = product.IsInternal,
+                      Location = product.Location,
+                      CreatedDateTime = product.CreatedDateTime,
+                      Price = product.Price,
+                      Gallery = product.productGallery.Select(g => new GalleryModel()
+                      {
+                          Id = g.Id,
+                          Name = g.Name,
+                          URL = g.URL
+                      }).ToList()
+                  }).ToListAsync();
+        }
         public async Task<List<ProductModel>> Search(string searchString)
         {
             return await _context.Products.Where(s => s.Description!.Contains(searchString) || s.ProductName!.Contains(searchString) ).Select(product => new ProductModel()

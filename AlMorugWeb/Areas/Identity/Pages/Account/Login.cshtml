@@ -5,34 +5,26 @@
     ViewData["Title"] = "Log in";
 }
 
-
-
-@*.*@
-    <link rel="stylesheet" href="~/css/login.css">
+<link rel="stylesheet" href="~/css/login.css">
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-7zoitj17DUgOc3LryFLW01G0SSR41jKUsA7MzyzrJysHxvNIPwkqbP+q3GMIHNF9XhF1Rksl/iv+U8rJyNlUnw==" crossorigin="anonymous" />
 
-    <div class="logo">
-      <a href="https://almorug.com/">
-        <img src="~/Images/logo.png" alt="Logo" />
-      </a>
-    </div>
 
-    <div class="login-box">
-      <h2>Login</h2>
+<div class="login-box">
+    <h2>Login</h2>
     <form id="account" method="post">
         <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
 
         <div class="user-box">
-          <input asp-for="Input.Email" autocomplete="username" aria-required="true" placeholder="name@example.com" />
-          <label asp-for="Input.Email" >Email</label>
+            <input asp-for="Input.Email" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+            <label asp-for="Input.Email">Email</label>
             <span asp-validation-for="Input.Email" class="text-danger"></span>
 
         </div>
         <div class="user-box">
-          <input  asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="password"/>
-          <label asp-for="Input.Password" class="form-label">Password</label>
+            <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="password" />
+            <label asp-for="Input.Password" class="form-label">Password</label>
             <span asp-validation-for="Input.Password" class="text-danger"></span>
 
         </div>
@@ -42,37 +34,42 @@
                 @Html.DisplayNameFor(m => m.Input.RememberMe)
             </label>
         </div>
-        <div>
+       @* <div>
             <button id="login-submit" type="submit" class="button">Log in</button>
+        </div>*@
+
+        <button id="login-submit" type="submit" class="button">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Submit
+        </button>
+
+
+        <div class="social-icons">
+            <a href="https://www.facebook.com/IqAlmorug">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://twitter.com/IqAlmorug">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.instagram.com/iqalmorug">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com/Almorugcompany">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://maps.app.goo.gl/qeEBGGtcQMguJELE8">
+                <i class="fa fa-map-marker"></i>
+            </a>
+            <a href="https://wa.me/+995595521037">
+                <i class="fab fa-whatsapp"></i>
+            </a>
         </div>
-      </form>
-    </div>
 
-    <div class="social-icons">
-      <a href="https://www.facebook.com/IqAlmorug"
-        ><i class="fab fa-facebook-f"></i
-      ></a>
-      <a href="https://twitter.com/IqAlmorug"
-        ><i class="fab fa-twitter"></i
-      ></a>
-      <a href="https://www.instagram.com/iqalmorug"
-        ><i class="fab fa-instagram"></i
-      ></a>
-      <a href="https://www.youtube.com/Almorugcompany"
-        ><i class="fab fa-youtube"></i
-      ></a>
-      <a href="https://maps.app.goo.gl/qeEBGGtcQMguJELE8"
-        ><i class="fa fa-map-marker"></i
-      ></a>
-      <a href="https://wa.me/+995595521037"
-        ><i class="fab fa-whatsapp"></i
-      ></a>
-    </div>
-
-    <script src="~/js/login.js"></script>
-
-
-
+    </form>
+</div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
