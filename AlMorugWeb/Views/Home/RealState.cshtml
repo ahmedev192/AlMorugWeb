@@ -5,8 +5,8 @@
 }
 
 
-<link rel="stylesheet" href="~/css/StyleSheet2.css" />
 
+<link rel="stylesheet" href="~/css/StyleSheet2.css" />
 
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
@@ -15,7 +15,7 @@
 
 <!--  search bar  -->
 <div class="search-container">
-     <form asp-controller="Home" asp-action="RealState" method="get">
+    <form asp-controller="Home" asp-action="Projects" method="get">
         <input type="text" name="SearchString" value="@ViewBag.SearchString" placeholder="Search...">
         <button type="submit" value="Filter"><i class="fa fa-search"></i></button>
     </form>
@@ -44,8 +44,7 @@
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
         <div class="discription-contaner">
-            <p class="discription">
-
+            <p id="discription" class="discription">
             </p>
         </div>
     </div>
@@ -91,20 +90,22 @@
                 </h2>
                 <p class="product-phone">Phone: @item.PhoneNumber</p>
                 <p class="product-description">
-                    @if(item.Description.Length >=170)
+                    @if (item.Description.Length >= 170)
                     {
                         @item.Description.ToString().Substring(0, 170)
 
-                    }else{
+                    }
+                    else
+                    {
                         @item.Description
 
                     }
 
                 </p>
-                <span id="allDescription" style="display:none;">
-                    @item.Description
-                </span>
-                @item.ProductName
+
+                <p>
+                    @item.ProductName
+                </p>
                 <p class="product-price">
                     $
                     @item.Price
@@ -115,8 +116,13 @@
                 @item.Location"><button class="product-button-location">Go to Location</button></a>
                     <button id="showptn" class="product-button-show">Show</button>
                 </div>
+                <span id="allDescription" style="display:none;">
+                    @item.Description
+                </span>
             </div>
+
         </div>
+
 
     }
 
@@ -125,7 +131,7 @@
 
 </div>
 
-<script src="~/js/JavaScript.js"></script>
+<script src="~/js/JavaScript1.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script>
     const swiper = new Swiper(".swiper", {
