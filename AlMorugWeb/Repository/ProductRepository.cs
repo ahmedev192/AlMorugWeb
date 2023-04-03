@@ -8,7 +8,7 @@ namespace AlMorugWeb.Repository
 {
     public class ProductRepository : IProductRepository
     {
-        private readonly ApplicationDbContext _context = null;
+        private readonly ApplicationDbContext _context ;
         public ProductRepository(ApplicationDbContext context)
         {
             _context = context;
@@ -55,9 +55,9 @@ namespace AlMorugWeb.Repository
 
 
 
-        public async void Update(ProductModel obj)
+        public  void Update(ProductModel obj)
         {
-            var objFromDb = _context.Products.FirstOrDefault(u => u.Id == obj.Id);
+            var objFromDb =  _context.Products.FirstOrDefault(u => u.Id == obj.Id);
             if (objFromDb != null)
             {
                 objFromDb.Id = obj.Id;
@@ -157,7 +157,7 @@ namespace AlMorugWeb.Repository
         }
 
 
-        public async Task<ProductModel> GetProductById(int id)
+        public async Task<ProductModel?> GetProductById(int id)
         {
             return await _context.Products.Where(x => x.Id == id)
                  .Select(product => new ProductModel()

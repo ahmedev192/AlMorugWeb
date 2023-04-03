@@ -6,9 +6,9 @@ namespace AlMorugWeb.Models
     {
         public int Id { get; set; }
         public int ProductId { get; set; }
-        public string Name { get; set; }
-        public string URL { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string URL { get; set; } = string.Empty;
 
-        public Product Product { get; set; }
+        public Product Product { get; set; } = new Product();
     }
 }

@@ -9,7 +9,7 @@ namespace AlMorugWeb.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IProductRepository _productRepository = null;
+        private readonly IProductRepository _productRepository ;
 
 
         public HomeController(IProductRepository productRepository)

@@ -20,7 +20,7 @@ namespace AlMorugWeb.Controllers
     public class ProductsController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly IProductRepository _productRepository = null;
+        private readonly IProductRepository _productRepository;
         private readonly IWebHostEnvironment _webHostEnvironment;
 
 
@@ -63,7 +63,7 @@ namespace AlMorugWeb.Controllers
         // GET: Products/Details/5
         public async Task<IActionResult> Details(int id)
         {
-            if (id == null || _context.Products == null)
+            if (_context.Products == null)
             {
                 return NotFound();
             }
@@ -93,6 +93,7 @@ namespace AlMorugWeb.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [System.Runtime.Versioning.SupportedOSPlatform("windows")]
         public async Task<IActionResult> Create(/*[Bind("Id")]*/ ProductModel productModel)
         {
             if (ModelState.IsValid)
@@ -103,14 +104,14 @@ namespace AlMorugWeb.Controllers
 
                     productModel.Gallery = new List<GalleryModel>();
 
-                   
-                        foreach (var file in productModel.GalleryFiles)
+
+                    foreach (var file in productModel.GalleryFiles)
                     {
                         var gallery = new GalleryModel()
                         {
                             Name = file.FileName,
 
-                        URL = await UploadImage(folder, file)
+                            URL = UploadImage(folder, file)
                         };
 
 
@@ -119,142 +120,146 @@ namespace AlMorugWeb.Controllers
 
                         productModel.Gallery.Add(gallery);
                     }
-            }
+                }
 
 
-            int id = await _productRepository.AddNewBook(productModel);
-            if (id > 0)
-            {
-                return RedirectToAction(nameof(Index) , "Home");
+                int id = await _productRepository.AddNewBook(productModel);
+                if (id > 0)
+                {
+                    return RedirectToAction(nameof(Index), "Home");
+                }
             }
-        }
 
             return View();
-    }
-
-
-
-    //GET
-    public async Task<IActionResult> Edit(int id)
-    {
-        if (id == null || id == 0)
-        {
-            return NotFound();
-        }
-        var data = await _productRepository.GetProductById(id);
-
-        if (data == null)
-        {
-            return NotFound();
         }
 
-        return View(data);
-    }
 
-    //POST
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(ProductModel obj)
-    {
 
-        if (ModelState.IsValid)
+        //GET
+        public async Task<IActionResult> Edit(int id)
         {
-            if (obj.GalleryFiles != null)
+            if (id == 0)
             {
-                string folder = "uploads/";
+                return NotFound();
+            }
+            var data = await _productRepository.GetProductById(id);
 
-                obj.Gallery = new List<GalleryModel>();
+            if (data == null)
+            {
+                return NotFound();
+            }
 
-                foreach (var file in obj.GalleryFiles)
+            return View(data);
+        }
+
+        //POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [System.Runtime.Versioning.SupportedOSPlatform("windows")]
+        public IActionResult Edit(ProductModel obj)
+        {
+
+            if (ModelState.IsValid)
+            {
+                if (obj.GalleryFiles != null)
                 {
-                    var gallery = new GalleryModel()
+                    string folder = "uploads/";
+
+                    obj.Gallery = new List<GalleryModel>();
+
+                    foreach (var file in obj.GalleryFiles)
                     {
-                        Name = file.FileName,
-                        URL = await UploadImage(folder, file)
-                    };
-                    obj.Gallery.Add(gallery);
+                        var gallery = new GalleryModel()
+                        {
+                            Name = file.FileName,
+                            URL = UploadImage(folder, file)
+                        };
+                        obj.Gallery.Add(gallery);
+                    }
                 }
+
+
+
+                _productRepository.Update(obj);
+                return RedirectToAction("Index", "Home");
             }
-
-
-
-            _productRepository.Update(obj);
-            return RedirectToAction("Index", "Home");
-        }
-        return View(obj);
-    }
-
-
-
-
-
-
-
-    // GET: Products/Delete/5
-    public async Task<IActionResult> Delete(int? id)
-    {
-        if (id == null || _context.Products == null)
-        {
-            return NotFound();
+            return View(obj);
         }
 
-        var product = await _context.Products
-            .FirstOrDefaultAsync(m => m.Id == id);
-        if (product == null)
-        {
-            return NotFound();
-        }
 
-        return View(product);
-    }
 
-    // POST: Products/Delete/5
-    [HttpPost, ActionName("Delete")]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> DeleteConfirmed(int id)
-    {
-        if (_context.Products == null)
+
+
+
+
+        // GET: Products/Delete/5
+        public async Task<IActionResult> Delete(int? id)
         {
-            return Problem("Entity set 'ApplicationDbContext.Products'  is null.");
-        }
-        string wwwRootPath = _webHostEnvironment.WebRootPath;
-        var product = await _context.Products.FindAsync(id);
-        var prod = await _productRepository.GetProductById(id);
-        string[] urls = new string[prod.Gallery.Count()];
-        for (int i = 0; i < prod.Gallery.Count(); i++)
-        {
-            urls[i] = prod.Gallery[i].URL;
-            var upload = wwwRootPath + urls[i];
-            if (System.IO.File.Exists(upload))
+            if (id == null || _context.Products == null)
             {
-                try
-                {
-                    System.GC.Collect();
-                    System.GC.WaitForPendingFinalizers();
-                    System.IO.File.Delete(upload);
-
-                }
-                catch (Exception ex) { }
+                return NotFound();
             }
 
+            var product = await _context.Products
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            return View(product);
         }
 
-
-        if (product != null)
+        // POST: Products/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            _context.Products.Remove(product);
+            if (_context.Products == null)
+            {
+                return Problem("Entity set 'ApplicationDbContext.Products'  is null.");
+            }
+            string wwwRootPath = _webHostEnvironment.WebRootPath;
+            var product = await _context.Products.FindAsync(id);
+            var prod = await _productRepository.GetProductById(id);
+            string[] urls = new string[prod.Gallery.Count()];
+            for (int i = 0; i < prod.Gallery.Count(); i++)
+            {
+                urls[i] = prod.Gallery[i].URL;
+                var upload = wwwRootPath + urls[i];
+                if (System.IO.File.Exists(upload))
+                {
+                    try
+                    {
+                        System.GC.Collect();
+                        System.GC.WaitForPendingFinalizers();
+                        System.IO.File.Delete(upload);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"\tMessage: {ex.Message}");
+
+                    }
+                }
+
+            }
+
+
+            if (product != null)
+            {
+                _context.Products.Remove(product);
+            }
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
-        await _context.SaveChangesAsync();
-        return RedirectToAction(nameof(Index));
-    }
+        [System.Runtime.Versioning.SupportedOSPlatform("windows")]
+        private string UploadImage(string folderPath, IFormFile file)
+        {
 
-
-
-    private async Task<string> UploadImage(string folderPath, IFormFile file)
-    {
-
-        folderPath += Guid.NewGuid().ToString() + "_" + file.FileName;
+            folderPath += Guid.NewGuid().ToString() + "_" + file.FileName;
 
             //.
             string path = Path.Combine(_webHostEnvironment.WebRootPath, folderPath);
@@ -270,45 +275,49 @@ namespace AlMorugWeb.Controllers
 
             string serverFolder = Path.Combine(_webHostEnvironment.WebRootPath, folderPath);
 
-        //await file.CopyToAsync(new FileStream(serverFolder, FileMode.Create));
+            //await file.CopyToAsync(new FileStream(serverFolder, FileMode.Create));
 
-        return "/" + folderPath;
-    }
+            return "/" + folderPath;
+        }
 
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> ClearOldPhotos(int Id)
-    {
-
-        string wwwRootPath = _webHostEnvironment.WebRootPath;
-        var prod = await _productRepository.GetProductById(Id);
-        string[] urls = new string[prod.Gallery.Count()];
-        for (int i = 0; i < prod.Gallery.Count(); i++)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ClearOldPhotos(int Id)
         {
-            urls[i] = prod.Gallery[i].URL;
-            var upload = wwwRootPath + urls[i];
-            if (System.IO.File.Exists(upload))
-            {
-                try
-                {
-                    System.GC.Collect();
-                    System.GC.WaitForPendingFinalizers();
-                    System.IO.File.Delete(upload);
 
+            string wwwRootPath = _webHostEnvironment.WebRootPath;
+            var prod = await _productRepository.GetProductById(Id);
+            string[] urls = new string[prod.Gallery.Count()];
+            for (int i = 0; i < prod.Gallery.Count(); i++)
+            {
+                urls[i] = prod.Gallery[i].URL;
+                var upload = wwwRootPath + urls[i];
+                if (System.IO.File.Exists(upload))
+                {
+                    try
+                    {
+                        System.GC.Collect();
+                        System.GC.WaitForPendingFinalizers();
+                        System.IO.File.Delete(upload);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"\tMessage: {ex.Message}");
+
+                    }
                 }
-                catch (Exception ex) { }
+
             }
+            var x = _context.ProductGallery.Where(u => u.ProductId == Id).ToList();
+            _context.ProductGallery.RemoveRange(x);
+            //_context.ProductGallery.Remove();
+
+            //_context.ProductGallery.RemoveRange(_context.ProductGallery.Where(u => u.ProductId == Id).ToList());
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Edit", new { id = Id });
 
         }
-        var x = _context.ProductGallery.Where(u => u.ProductId == Id).ToList();
-        _context.ProductGallery.RemoveRange(x);
-        //_context.ProductGallery.Remove();
-
-        //_context.ProductGallery.RemoveRange(_context.ProductGallery.Where(u => u.ProductId == Id).ToList());
-
-        _context.SaveChangesAsync();
-        return RedirectToAction("Edit", new { id = Id });
-
     }
-}
 }

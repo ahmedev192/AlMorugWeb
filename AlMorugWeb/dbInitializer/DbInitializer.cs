@@ -15,7 +15,7 @@ namespace AlMorugWeb.dbInitializer
             )
         {
             _userManager = userManager;
-            _db= db;
+            _db = db;
         }
 
 
@@ -23,34 +23,37 @@ namespace AlMorugWeb.dbInitializer
         public async void Initialize()
         {
             // Migrations If They Are Not Applied.
-            try{
-                if(_db.Database.GetPendingMigrations().Count() > 0)
+            try
+            {
+                if (_db.Database.GetPendingMigrations().Count() > 0)
                 {
                     _db.Database.Migrate();
                 }
 
-            }catch( Exception ex)
+            }
+            catch (Exception ex)
             {
+                Console.WriteLine($"\tMessage: {ex.Message}");
 
             }
 
 
             //Create Admin user.
             if (await _userManager.FindByEmailAsync("admin@gmail.com") == null)
-            { 
+            {
                 _userManager.CreateAsync(new IdentityUser
                 {
                     UserName = "admin@gmail.com",
                     Email = "admin@gmail.com",
-                    EmailConfirmed= true,
+                    EmailConfirmed = true,
 
                 }, "Admin@123").GetAwaiter().GetResult();
 
 
 
             }
-            IdentityUser user;
-            user = await _userManager.FindByEmailAsync("admin@gmail.com");
+            //IdentityUser? user;
+            //user = await _userManager.FindByEmailAsync("admin@gmail.com");
             return;
 
         }

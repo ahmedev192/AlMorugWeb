@@ -5,7 +5,7 @@ namespace AlMorugWeb.Repository
     public interface IProductRepository
     {
         Task<int> AddNewBook(ProductModel model);
-        Task<ProductModel> GetProductById(int id);
+        Task<ProductModel?> GetProductById(int id);
         Task<List<ProductModel>> GetAll(bool intern);
         Task<List<ProductModel>> GetAllAdmin();
         void Update(ProductModel model);
