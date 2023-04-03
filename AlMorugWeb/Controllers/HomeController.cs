@@ -9,13 +9,11 @@ namespace AlMorugWeb.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
         private readonly IProductRepository _productRepository = null;
 
 
-        public HomeController(ILogger<HomeController> logger, IProductRepository productRepository)
+        public HomeController(IProductRepository productRepository)
         {
-            _logger = logger;
             _productRepository = productRepository;
         }
 
@@ -25,7 +23,7 @@ namespace AlMorugWeb.Controllers
             {
                 var Data = await _productRepository.Search(searchString);
                 ViewBag.SearchString = searchString;
-                return View( Data);
+                return View(Data);
             }
 
             else
@@ -33,7 +31,7 @@ namespace AlMorugWeb.Controllers
                 //var data = await _productRepository.GetAll();
                 return View();
             }
-            
+
         }
 
 
@@ -92,17 +90,6 @@ namespace AlMorugWeb.Controllers
         }
 
 
-
-
-
-
-
-
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

@@ -1,74 +1,8 @@
-﻿@*@model IEnumerable<AlMorugWeb.Models.ViewModels.ProductModel>*@
-
-@{
+﻿@{
     ViewData["Title"] = "Home Page";
 }
 
 
-@*<head>
-    <link href="~/css/js-image-slider.css" rel="stylesheet" type="text/css" />
-    <script src="~/js/js-image-slider.js" type="text/javascript"></script>
-    <link href="~/css/generic.css" rel="stylesheet" type="text/css" />
-
-</head>*@
-@*<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;900&display=swap" rel="stylesheet">
-
-    <title>Hiking Kings</title>
-</head>*@
-
-@*
-<form asp-controller="Home" asp-action="Index" method="get">
-    <p>
-        Title: <input type="text" name="SearchString" value="@ViewBag.SearchString">
-        <input type="submit" value="Filter" />
-    </p>
-</form>*@
-@*@foreach (var item in Model)
-{
-    <div class="card" style="width: 18rem;">
-        @if (@item.Gallery.Count > 0)
-        {*@
-            @*  <div id="sliderFrame">
-    <div id="slider">
-
-    @for (int i = 0; i < item.Gallery.Count(); i++)
-    {
-    <img src="@item.Gallery[i].URL" />
-    }
-    </div>
-
-    </div>*@
-
-@*    
-
-        }
-        else
-        {
-            <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg">
-
-        }
-        <div class="card-body">
-            <h5 class="card-title">@item.ProductName</h5>
-            <p class="card-text">@item.Description</p>
-            <p class="card-title">@item.PhoneNumber</p>
-
-            <a href="@item.Location" target="_blank" class="link-success">Location</a>
-
-            <p class="card-title">@item.Price</p>
-            <p class="card-title">@item.CreatedDateTime</p>
-
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-    </div>
-}
-*@
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-7zoitj17DUgOc3LryFLW01G0SSR41jKUsA7MzyzrJysHxvNIPwkqbP+q3GMIHNF9XhF1Rksl/iv+U8rJyNlUnw==" crossorigin="anonymous" />
@@ -97,8 +31,10 @@
     <div class="glass">
         <h1>Al-Morug Company</h1>
         <h2>for real estates and <br />investment in Georgia</h2>
-        <a asp-controller="Home" asp-action="Projects"><button class="btn">Projects</button></a>
-        <a asp-controller="Home" asp-action="RealState"><button class="btn">Real State</button></a>
+        <div id="btss">
+            <a asp-controller="Home" asp-action="Projects"><button class="btn">Projects</button></a>
+            <a id="real" asp-controller="Home" asp-action="RealState"><button class="btn">Real State</button></a>
+        </div>
         <span id="Contact">Contact Us : </span>
         <div id="social" class="social-icons">
             <a href="https://www.facebook.com/IqAlmorug">
@@ -124,49 +60,49 @@
 
 </div>
 
-    <div class="investment">
-        <h3>Development investment and real estate</h3>
-        <br>
-        <p>
-            Real estate is the best investment currency for our company,
-            as we provide optimal investment opportunities for our clients
-        </p>
+<div class="investment">
+    <h3>Development investment and real estate</h3>
+    <br>
+    <p>
+        Real estate is the best investment currency for our company,
+        as we provide optimal investment opportunities for our clients
+    </p>
 
-        <!-- <i class="fas fa-hand-holding-usd"></i>
-         <i class="fas fa-building"></i>
-          -->
-        <!-- cards for investment -->
-        <div class="coun-card">
+    <!-- <i class="fas fa-hand-holding-usd"></i>
+     <i class="fas fa-building"></i>
+      -->
+    <!-- cards for investment -->
+    <div class="coun-card">
 
-            <div class="card">
+        <div class="card">
 
-                <span class="fahome"><i class="fas fa-home"></i></span>
+            <span class="fahome"><i class="fas fa-home"></i></span>
 
-                <br>
+            <br>
 
-                <p class=" fahometext">Our company specializes in real estate development and investment</p>
-            </div>
-
-            <div class="card">
-
-                <span class="fahome"><i class="fas fa-hand-holding-usd"></i> </span>
-
-                <br>
-
-                <p class=" fahometext">Investment in real estate can be a wise financial decision</p>
-            </div>
-
-            <div class="card">
-
-                <span class="fahome"><i class="fas fa-building"></i></span>
-
-                <br>
-
-                <p class=" fahometext">We offer a wide range of real estate services to meet our clients' needs</p>
-            </div>
+            <p class=" fahometext">Our company specializes in real estate development and investment</p>
         </div>
 
+        <div class="card">
 
+            <span class="fahome"><i class="fas fa-hand-holding-usd"></i> </span>
+
+            <br>
+
+            <p class=" fahometext">Investment in real estate can be a wise financial decision</p>
+        </div>
+
+        <div class="card">
+
+            <span class="fahome"><i class="fas fa-building"></i></span>
+
+            <br>
+
+            <p class=" fahometext">We offer a wide range of real estate services to meet our clients' needs</p>
+        </div>
     </div>
+
+
+</div>
 
 </div>

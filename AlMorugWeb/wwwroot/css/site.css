@@ -7,8 +7,16 @@
 body {
     background-color: #202123;
 }
+#btss{
+display:flex;
+}
 
-#logout{
+#real{
+white-space:nowrap;
+margin-left:2%;
+}
+
+#logout {
     margin-left: auto;
 }
 

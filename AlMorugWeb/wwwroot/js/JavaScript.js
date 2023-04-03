@@ -1,5 +1,4 @@
-////////////////////////////////////////////////////////////////
-// search animation 
+﻿// search animation 
 const searchIcon = document.querySelector(".fa-search");
 
 searchIcon.addEventListener("mouseenter", () => {
@@ -34,13 +33,14 @@ showPtn.forEach((element) => {
         imgescontainer.innerHTML = "";
 
         for (let i = 0; i < imgs.length; i++) {
-            imgescontainer.innerHTML += `<div class="swiper-slide">
+            imgescontainer.innerHTML += `
+
+                <!-- Slides -->
+          
+                <div class="swiper-slide">
                     <img src=" ${imgs[i].src}" alt="" />
-                </div>`
-
-
-
-
+                </div>
+        `
         }
     })
 
