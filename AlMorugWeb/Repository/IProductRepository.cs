@@ -13,6 +13,8 @@ namespace AlMorugWeb.Repository
 
         Task<List<ProductModel>> Search(string searchString);
 
+        //Models.ViewModels.Index index();
+
 
 
 

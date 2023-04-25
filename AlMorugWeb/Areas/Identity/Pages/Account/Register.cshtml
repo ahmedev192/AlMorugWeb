@@ -3,6 +3,10 @@
 @{
     ViewData["Title"] = "Register";
 }
+@using System.Globalization
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer localizer
 
 
 <link rel="stylesheet" href="~/css/newAdmin.css">
@@ -11,57 +15,27 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-7zoitj17DUgOc3LryFLW01G0SSR41jKUsA7MzyzrJysHxvNIPwkqbP+q3GMIHNF9XhF1Rksl/iv+U8rJyNlUnw==" crossorigin="anonymous" />
 
 
-@*<div class="row">
-    <div class="col-md-4">
-        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h2>Create a new account.</h2>
-            <hr />
-            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
-            <div class="form-floating mb-3">
-                <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
-                <label asp-for="Input.Email">Email</label>
-                <span asp-validation-for="Input.Email" class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3">
-                <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
-                <label asp-for="Input.Password">Password</label>
-                <span asp-validation-for="Input.Password" class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3">
-                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
-                <label asp-for="Input.ConfirmPassword">Confirm Password</label>
-                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
-            </div>
-            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
-        </form>
-    </div>
-    
-</div>
-
-
-*@
-
 
 <div class="login-box">
-    <h2>Create New Account</h2>
+    <h2>@localizer["Create New Account"]</h2>
     <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
         <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
 
         <div class="user-box">
             <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
-            <label asp-for="Input.Email">Email</label>
+            <label asp-for="Input.Email">@localizer["Email"]</label>
             <span asp-validation-for="Input.Email" class="text-danger"></span>
         </div>
 
         <div class="user-box">
             <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
-            <label asp-for="Input.Password">Password</label>
+            <label asp-for="Input.Password">@localizer["Password"]</label>
             <span asp-validation-for="Input.Password" class="text-danger"></span>
         </div>
 
         <div class="user-box">
             <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
-            <label asp-for="Input.ConfirmPassword">Confirm Password</label>
+            <label asp-for="Input.ConfirmPassword">@localizer["Confirm Password"]</label>
             <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
         </div>
 
@@ -71,7 +45,7 @@
             <span></span>
             <span></span>
             <span></span>
-            Register
+           @localizer["Register"]
         </button>
 
 

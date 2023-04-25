@@ -1,14 +1,24 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
+@using System.Globalization
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer localizer
+
+@{
+    var isRTL = CultureInfo.CurrentCulture.Name.StartsWith("ar");
+}
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - AlMorugWeb</title>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/IndexStyle.css" asp-append-version="true" />
 
 </head>
 <body>
@@ -21,18 +31,19 @@
                 </a>
             </div>
             <ul class="" id="navBar">
-                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-controller="Home" asp-action="Index">@localizer["home"]</a></li>
                 @if (SignInManager.IsSignedIn(User))
                 {
-                    <li><a asp-controller="Products" asp-action="Index">Admin Panel</a></li>
+                    <li><a asp-controller="Products" asp-action="Index">@localizer["Admin Panel"]</a></li>
                     <li>
-                        <a id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                        <a id="register" asp-area="Identity" asp-page="/Account/Register">@localizer["Register"]</a>
                     </li>
 
                 }
-                <li><a asp-controller="Home" asp-action="Projects">Projects</a></li>
-                <li><a asp-controller="Home" asp-action="RealState">Real Estat</a></li>
-                <li><a href="@Url.Action("Index", "Home")#social">Contact Us</a></li>
+                <li><a asp-controller="Home" asp-action="Projects">@localizer["Projects"]</a></li>
+                <li><a asp-controller="Home" asp-action="RealState">@localizer["Real Estate"]</a></li>
+                <li><a href="@Url.Action("Index", "Home")#contact">@localizer["Contact Us"]</a></li>
+                <partial name="_SelectLanguage" />
                 <partial name="_LoginPartial" />
 
             </ul>
@@ -54,6 +65,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/IndexJs.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

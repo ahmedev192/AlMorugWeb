@@ -1,46 +1,52 @@
 ﻿@model IEnumerable<AlMorugWeb.Models.ViewModels.ProductModel>
+@using System.Globalization
+@using Microsoft.AspNetCore.Mvc.Localization
 
+@inject IViewLocalizer localizer
 @{
     ViewData["Title"] = "Index";
 }
-
+@{
+    var isRTL = CultureInfo.CurrentCulture.Name.StartsWith("ar");
+}
 <link rel="stylesheet" href="~/css/table.css">
 
 <form asp-controller="Products" asp-action="Index" method="get">
 
     <p>
-        Title: <input type="text" name="SearchString" value="@ViewBag.SearchString" />
-        <input type="submit" value="Filter" />
+        @localizer["Title"]: <input type="text" name="SearchString" value="@ViewBag.SearchString" />
+        <input type="submit" value="@localizer["Filter"]" />
     </p>
 </form>
-<a id="create" asp-controller="Products" asp-action="Create"><input type="submit" value="New Product"> </a>
+<a id="create" asp-controller="Products" asp-action="Create"><input type="submit" value="@localizer["New Product"]"> </a>
 
 
 <table class="table">
 
     <thead>
         <tr>
+
             <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.ProductName)</a>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">@localizer["ProductName"]</a>
             </th>
             <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["DescParm"]">@Html.DisplayNameFor(model => model.Description)</a>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["DescParm"]">@localizer[@Html.DisplayNameFor(model => model.Description)]</a>
 
             </th>
             <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["PhoneParm"]">@Html.DisplayNameFor(model => model.PhoneNumber)</a>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["PhoneParm"]">@localizer[@Html.DisplayNameFor(model => model.PhoneNumber)]</a>
 
             </th>
             <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["InternalParm"]">@Html.DisplayNameFor(model => model.IsInternal)</a>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["InternalParm"]">@localizer[@Html.DisplayNameFor(model => model.IsInternal)]</a>
 
             </th>
             <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["PriceParm"]">@Html.DisplayNameFor(model => model.Price)</a>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["PriceParm"]">@localizer[@Html.DisplayNameFor(model => model.Price)]</a>
 
             </th>
             <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]">@Html.DisplayNameFor(model => model.CreatedDateTime)</a>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]">@localizer[@Html.DisplayNameFor(model => model.CreatedDateTime)]</a>
 
             </th>
             <th></th>
@@ -69,9 +75,9 @@
                     @Html.DisplayFor(modelItem => item.CreatedDateTime)
                 </td>
                 <td>
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <a asp-action="Details" asp-route-id="@item.Id"> @localizer["Details"]</a> |
+                    <a asp-action="Edit" asp-route-id="@item.Id"> @localizer["Edit"]</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id"> @localizer["Delete"]</a>
                 </td>
             </tr>
         }

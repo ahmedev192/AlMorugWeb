@@ -1,4 +1,9 @@
-﻿@{
+﻿@model AlMorugWeb.Models.ViewModels.Index
+@using System.Globalization
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer localizer
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -6,17 +11,20 @@
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-7zoitj17DUgOc3LryFLW01G0SSR41jKUsA7MzyzrJysHxvNIPwkqbP+q3GMIHNF9XhF1Rksl/iv+U8rJyNlUnw==" crossorigin="anonymous" />
-
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 <!-- start of body secation -->
 <div class="body">
+    @*<h1>@ViewBag.wel    </h1>*@
     <!-- left secation  -->
     <div class="leftSecation">
         <!-- slider -->
         <div class="slider">
             <div class="slides">
-                <img src="~/Images/pic1.jpg" alt="Slide 1" />
-                <img src="~/Images/pic2.jpg" alt="Slide 2" />
-                <img src="~/Images/pic3.jpg" alt="Slide 3" />
+                <img src="~/Images/land1.jpeg" alt="Slide 1" />
+                <img src="~/Images/land2.jpeg" alt="Slide 2" />
+                <img src="~/Images/land3.jpeg" alt="Slide 3" />
             </div>
             <div class="arrow arrow-left">
                 <i class="fas fa-chevron-left"></i>
@@ -29,13 +37,13 @@
     </div>
 
     <div class="glass">
-        <h1>Al-Morug Company</h1>
-        <h2>for real estates and <br />investment in Georgia</h2>
+        <h1>@localizer["Al-Morug Company"]</h1>
+        <h2>@localizer["for real estates and <br />investment in Georgia"]</h2>
         <div id="btss">
-            <a asp-controller="Home" asp-action="Projects"><button class="btn">Projects</button></a>
-            <a id="real" asp-controller="Home" asp-action="RealState"><button class="btn">Real State</button></a>
+            <a asp-controller="Home" asp-action="Projects"><button class="btn">@localizer["Projects"]</button></a>
+            <a id="real" asp-controller="Home" asp-action="RealState"><button class="btn">@localizer["Real State"]</button></a>
         </div>
-        <span id="Contact">Contact Us : </span>
+        <span id="Contact">@localizer["Contact Us"] : </span>
         <div id="social" class="social-icons">
             <a href="https://www.facebook.com/IqAlmorug">
                 <i class="fab fa-facebook-f"></i>
@@ -60,12 +68,13 @@
 
 </div>
 
+
+
 <div class="investment">
-    <h3>Development investment and real estate</h3>
+    <h3> @localizer["Development investment and real estate"]</h3>
     <br>
     <p>
-        Real estate is the best investment currency for our company,
-        as we provide optimal investment opportunities for our clients
+        @localizer["Real estate is the best investment currency for our company as we provide optimal investment opportunities for our clients"]
     </p>
 
     <!-- <i class="fas fa-hand-holding-usd"></i>
@@ -74,35 +83,87 @@
     <!-- cards for investment -->
     <div class="coun-card">
 
-        <div class="card">
+        <div class="card animate__animated animate__bounce">
 
             <span class="fahome"><i class="fas fa-home"></i></span>
 
             <br>
 
-            <p class=" fahometext">Our company specializes in real estate development and investment</p>
+            <p class=" fahometext">@localizer["Our company specializes in real estate development and investment"]</p>
         </div>
 
-        <div class="card">
+        <div class="card animate__animated animate__bounce">
 
             <span class="fahome"><i class="fas fa-hand-holding-usd"></i> </span>
 
             <br>
 
-            <p class=" fahometext">Investment in real estate can be a wise financial decision</p>
+            <p class=" fahometext">@localizer["Investment in real estate can be a wise financial decision"]</p>
         </div>
 
-        <div class="card">
+        <div class="card animate__animated animate__bounce">
 
             <span class="fahome"><i class="fas fa-building"></i></span>
 
             <br>
 
-            <p class=" fahometext">We offer a wide range of real estate services to meet our clients' needs</p>
+            <p class=" fahometext">@localizer["We offer a wide range of real estate services to meet our clients' needs"]</p>
+        </div>
+
+    </div>
+
+    <!-- last 2 cards -->
+
+    <div class="titel">
+        <h2>@localizer["Our latest work"]</h2>
+    </div>
+
+    <div class="last2">
+        <div class="lastRealEstat">
+            <img src="@Model.Products.OrderByDescending(u=>u.Id).FirstOrDefault().Gallery[0].URL" alt="last real estat">
+            <div class="overlay">
+                <h2>@localizer["Some Title"]</h2>
+                <button class="cardbtn">@localizer["details"]</button>
+            </div>
+        </div>
+        <div class="lastProject">
+            <img src="@Model.Realstates.OrderByDescending(u=>u.Id).FirstOrDefault().Gallery[0].URL" alt="last project">
+            <div class="overlay">
+                <h2>@localizer["Some Title"]</h2>
+                <button class="cardbtn">@localizer["details"]</button>
+            </div>
         </div>
     </div>
 
+    <div class="about-us">
+        <h2>@localizer["About Us"]</h2>
+        <p>@localizer["At Al-Morug, we are committed to providing exceptional real estate services to our clients. Our experienced team has a deep understanding of the local market and can help you navigate every step of the buying or selling process"].</p>
+        <p>@localizer["We are dedicated to honesty, transparency, and integrity in all our dealings, and we always put our clients' needs first. Whether you are a first-time homebuyer or a seasoned investor, we are here to help you achieve your real estate goals"].</p>
+    </div>
+
+    <div class="counter">
+        <div class="projectsCounter">
+            <h4>@localizer["Our Projects"]</h4>
+            <span class="count"> @Model.Products.Count()</span>
+        </div>
+        <div class="RealEstateCounter">
+            <h4>@localizer["Our RealEstat"]</h4>
+            <span class="countreal">@Model.Realstates.Count()</span>
+        </div>
+
+    </div>
+    <div class="footer">
+        <div class="footer-content">
+            <p>&copy; <span id="currentYear"></span> @localizer["Al-Morug All rights reserved"].</p>
+            <ul>
+                <li><a href="#">@localizer["Contact Us"]</a></li>
+            </ul>
+        </div>
+    </div>
 
 </div>
 
-</div>
+
+    </div>
+
+

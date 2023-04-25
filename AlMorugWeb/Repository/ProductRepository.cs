@@ -3,12 +3,13 @@ using AlMorugWeb.Models;
 using AlMorugWeb.Models.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using static System.Reflection.Metadata.BlobBuilder;
+using Index = AlMorugWeb.Models.ViewModels.Index;
 
 namespace AlMorugWeb.Repository
 {
     public class ProductRepository : IProductRepository
     {
-        private readonly ApplicationDbContext _context ;
+        private readonly ApplicationDbContext _context;
         public ProductRepository(ApplicationDbContext context)
         {
             _context = context;
@@ -55,9 +56,9 @@ namespace AlMorugWeb.Repository
 
 
 
-        public  void Update(ProductModel obj)
+        public void Update(ProductModel obj)
         {
-            var objFromDb =  _context.Products.FirstOrDefault(u => u.Id == obj.Id);
+            var objFromDb = _context.Products.FirstOrDefault(u => u.Id == obj.Id);
             if (objFromDb != null)
             {
                 objFromDb.Id = obj.Id;
@@ -84,8 +85,8 @@ namespace AlMorugWeb.Repository
                     }
                 }
 
-                 _context.Products.Update(objFromDb);
-                 _context.SaveChanges();
+                _context.Products.Update(objFromDb);
+                _context.SaveChanges();
             }
         }
 
@@ -95,7 +96,7 @@ namespace AlMorugWeb.Repository
         public async Task<List<ProductModel>> GetAll(bool intern)
         {
             return await _context.Products
-                  .Where(u=>u.IsInternal== intern).Select(product => new ProductModel()
+                  .Where(u => u.IsInternal == intern).Select(product => new ProductModel()
                   {
                       Id = product.Id,
                       ProductName = product.ProductName,
@@ -136,7 +137,7 @@ namespace AlMorugWeb.Repository
         }
         public async Task<List<ProductModel>> Search(string searchString)
         {
-            return await _context.Products.Where(s => s.Description!.Contains(searchString) || s.ProductName!.Contains(searchString) ).Select(product => new ProductModel()
+            return await _context.Products.Where(s => s.Description!.Contains(searchString) || s.ProductName!.Contains(searchString)).Select(product => new ProductModel()
             {
                 Id = product.Id,
                 ProductName = product.ProductName,
@@ -218,6 +219,61 @@ namespace AlMorugWeb.Repository
             }
 
         }
+
+
+        //public  Index index()
+        //{
+        //    Product product = _context.Products.Where(u => u.IsInternal == true).OrderByDescending(u => u.Id).FirstOrDefault();
+        //    Product realstate = _context.Products.Where(u => u.IsInternal == false).OrderByDescending(u => u.Id).FirstOrDefault();
+
+
+        //    Index Data = new()
+
+        //    {
+        //        LastProduct = new()
+        //        {
+        //            Id = product.Id,
+        //            PhoneNumber = product.PhoneNumber,
+        //            ProductName = product.ProductName,
+        //            Description = product.Description,
+        //            IsInternal = product.IsInternal,
+        //            Location = product.Location,
+        //            CreatedDateTime = product.CreatedDateTime,
+        //            Price = product.Price,
+        //            Gallery = product.productGallery.Select(g => new GalleryModel()
+        //            {
+        //                Id = g.Id,
+        //                Name = g.Name,
+        //                URL = g.URL
+        //            }).ToList(),
+
+
+        //        },
+        //        LastRealstate = new()
+        //        {
+        //            Id = product.Id,
+        //            PhoneNumber = realstate.PhoneNumber,
+        //            ProductName = realstate.ProductName,
+        //            Description = realstate.Description,
+        //            IsInternal = realstate.IsInternal,
+        //            Location = realstate.Location,
+        //            CreatedDateTime = realstate.CreatedDateTime,
+        //            Price = realstate.Price,
+        //            Gallery = realstate.productGallery.Select(g => new GalleryModel()
+        //            {
+        //                Id = g.Id,
+        //                Name = g.Name,
+        //                URL = g.URL
+        //            }).ToList(),
+
+        //        },
+        //        ProductsCounter = _context.Products.Where(u => u.IsInternal == true).Count(),
+        //        RealStateCounter = _context.Products.Where(u => u.IsInternal == false).Count(),
+
+        //    };
+        //    return Data;
+        //}
+
 
     }
 

@@ -1,36 +1,40 @@
 ﻿using AlMorugWeb.Models;
 using AlMorugWeb.Models.ViewModels;
 using AlMorugWeb.Repository;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
 using System.Diagnostics;
+using Index = AlMorugWeb.Models.ViewModels.Index;
 
 namespace AlMorugWeb.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IProductRepository _productRepository ;
+        private readonly IProductRepository _productRepository;
+        private readonly IStringLocalizer<HomeController> _localizer;
 
 
-        public HomeController(IProductRepository productRepository)
+        public HomeController(IProductRepository productRepository, IStringLocalizer<HomeController> localizer)
         {
             _productRepository = productRepository;
+            _localizer = localizer;
         }
 
-        public async Task<ViewResult> Index(string searchString)
+        public async Task<ViewResult> Index()
         {
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                var Data = await _productRepository.Search(searchString);
-                ViewBag.SearchString = searchString;
-                return View(Data);
-            }
+            var data1 = await _productRepository.GetAll(true);
+            var data2 = await _productRepository.GetAll(false);
 
-            else
+            var all = new Index()
             {
-                //var data = await _productRepository.GetAll();
-                return View();
-            }
+                Products = data1,
+                Realstates = data2,
+            };
+
+            //var data = await _productRepository.GetAll();
+            return View(all); ;
 
         }
 
@@ -96,5 +100,19 @@ namespace AlMorugWeb.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        //.
+
+        [HttpPost]
+        public IActionResult SetLanguage(string culture, string returnUrl)
+        {
+            Response.Cookies.Append(
+                CookieRequestCultureProvider.DefaultCookieName,
+                CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+                new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) }
+                );
+
+            return LocalRedirect(returnUrl);
+        }
+        //.
     }
 }
