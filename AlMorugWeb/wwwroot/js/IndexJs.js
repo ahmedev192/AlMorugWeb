@@ -4,9 +4,9 @@ let navBar = document.getElementById("navBar");
 burger.addEventListener("click" , () =>{
   navBar.classList.toggle("active");
   if(navBar.classList.contains("active")){
-    navBar.style.left="-100%";
+      navBar.style.right ="50%";
   }else{
-    navBar.style.left="0" ;
+      navBar.style.right ="150%" ;
   }
 })
 
@@ -79,7 +79,7 @@ slider.addEventListener("mouseleave", () => {
 
 // for projects
 var count = 0;
-var target = 100; // set your desired target number here
+var target = parseInt(document.querySelector(".countnum").innerHTML); // set your desired target number here
 function incrementCount() {
   count++;
   document.querySelector(".count").innerHTML = count;
@@ -89,7 +89,7 @@ function incrementCount() {
 }
 
 function startCounter() {
-  if (window.pageYOffset >= 1563) {
+  if (window.pageYOffset >= 1500) {
     setTimeout(incrementCount, 25);
     window.removeEventListener('scroll', startCounter);
   }
@@ -99,7 +99,7 @@ window.addEventListener('scroll', startCounter);
 
 
 // for real estat 
-var targetreal = 50; // set your desired target number here
+var targetreal = parseInt(document.querySelector(".countrealnum").innerHTML) ; // set your desired target number here
 var countReal = 0;
 function incrementCountReal() {
   countReal++;
@@ -111,7 +111,7 @@ function incrementCountReal() {
 
 function startCounterReal() {
   console.log(window.pageYOffset);
-  if (window.pageYOffset >= 1563) {
+    if (window.pageYOffset >= 1500) {
     setTimeout(incrementCountReal, 25);
     window.removeEventListener('scroll', startCounterReal);
   }

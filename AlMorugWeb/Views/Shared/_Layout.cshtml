@@ -7,65 +7,122 @@
 @inject IViewLocalizer localizer
 
 @{
-    var isRTL = CultureInfo.CurrentCulture.Name.StartsWith("ar");
+	var isRTL = CultureInfo.CurrentCulture.Name.StartsWith("ar");
 }
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - AlMorugWeb</title>
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/IndexStyle.css" asp-append-version="true" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - AlMorugWeb</title>
+	<link rel="stylesheet" href="~/css/IndexStyle.css" asp-append-version="true" />
+	@if (isRTL)
+	{
+		<link rel="stylesheet" href="~/css/site-ar.css" asp-append-version="true" />
+	}
+	else
+	{
+		<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+	}
 
 </head>
 <body>
-    <header>
+	<header>
 
-        <nav>
-            <div class="logo">
-                <a asp-controller="Home" asp-action="Index">
-                    <img src="~/Images/logo.png" alt="Logo" />
-                </a>
-            </div>
-            <ul class="" id="navBar">
-                <li><a asp-controller="Home" asp-action="Index">@localizer["home"]</a></li>
-                @if (SignInManager.IsSignedIn(User))
-                {
-                    <li><a asp-controller="Products" asp-action="Index">@localizer["Admin Panel"]</a></li>
-                    <li>
-                        <a id="register" asp-area="Identity" asp-page="/Account/Register">@localizer["Register"]</a>
-                    </li>
+		
+			@if (isRTL)
+			{
 
-                }
-                <li><a asp-controller="Home" asp-action="Projects">@localizer["Projects"]</a></li>
-                <li><a asp-controller="Home" asp-action="RealState">@localizer["Real Estate"]</a></li>
-                <li><a href="@Url.Action("Index", "Home")#contact">@localizer["Contact Us"]</a></li>
-                <partial name="_SelectLanguage" />
-                <partial name="_LoginPartial" />
+			<nav dir="ltr">
 
-            </ul>
+				<div class="logo">
+					<a asp-controller="Home" asp-action="Index">
+						<img src="~/Images/logo.png" alt="Logo" />
+					</a>
+				</div>
+				
+					<div class="burger" id="burger">
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
 
-            <div class="burger" id="burger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+				<ul class="" id="navBar">
+
+					<li><a href="@Url.Action("Index", "Home")#contact">@localizer["Contact Us"]</a></li>
+					<li><a asp-controller="Home" asp-action="RealState">@localizer["Real Estate"]</a></li>
+					<li><a asp-controller="Home" asp-action="Projects">@localizer["Projects"]</a></li>
+
+					@if (SignInManager.IsSignedIn(User))
+					{
+						<li><a asp-controller="Products" asp-action="Index">@localizer["Admin Panel"]</a></li>
+						<li>
+							<a id="register" asp-area="Identity" asp-page="/Account/Register">@localizer["Register"]</a>
+						</li>
+
+					}
 
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="~/js/IndexJs.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+					<li><a asp-controller="Home" asp-action="Index">@localizer["home"]</a></li>
+					
+					
+					<partial name="_LoginPartial" />
+					<partial name="_SelectLanguage" />
+
+				</ul>
+			</nav>
+
+		}
+			else
+			{
+			<nav dir="ltr">
+
+				<div class="logo">
+					<a asp-controller="Home" asp-action="Index">
+						<img src="~/Images/logo.png" alt="Logo" />
+					</a>
+				</div>
+				<ul class="" id="navBar">
+				<li><a asp-controller="Home" asp-action="Index">@localizer["home"]</a></li>
+				@if (SignInManager.IsSignedIn(User))
+				{
+					<li><a asp-controller="Products" asp-action="Index">@localizer["Admin Panel"]</a></li>
+					<li>
+						<a id="register" asp-area="Identity" asp-page="/Account/Register">@localizer["Register"]</a>
+					</li>
+
+				}
+				<li><a asp-controller="Home" asp-action="Projects">@localizer["Projects"]</a></li>
+				<li><a asp-controller="Home" asp-action="RealState">@localizer["Real Estate"]</a></li>
+				<li><a href="@Url.Action("Index", "Home")#contact">@localizer["Contact Us"]</a></li>
+					<partial name="_LoginPartial" />
+				<partial name="_SelectLanguage" />
+				</ul>
+
+				<div class="burger" id="burger">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+				</nav>
+
+			}
+
+	</header>
+	<div class="container">
+		<main role="main" class="pb-3">
+			@RenderBody()
+		</main>
+	</div>
+
+
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+	<script src="~/js/IndexJs.js" asp-append-version="true"></script>
+	@await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

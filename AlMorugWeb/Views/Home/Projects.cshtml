@@ -1,5 +1,12 @@
 ﻿@model IEnumerable<AlMorugWeb.Models.ViewModels.ProductModel>
+@using System.Globalization
+@using Microsoft.AspNetCore.Mvc.Localization
 
+@inject IViewLocalizer localizer
+
+@{
+    var isRTL = CultureInfo.CurrentCulture.Name.StartsWith("ar");
+}
 @{
     ViewData["Title"] = "Index";
 }
@@ -85,26 +92,62 @@
             </div>
             <div class="product-info">
                 <h2 class="product-name">
-                    @item.ProductName
-
-                </h2>
-                <p class="product-phone">Phone: @item.PhoneNumber</p>
-                <p class="product-description">
-                    @if (item.Description.Length >= 170)
+                    @if (isRTL)
                     {
-                        @item.Description.ToString().Substring(0, 170)
+                        @item.ProductNameAr
 
                     }
                     else
                     {
-                        @item.Description
+                        @item.ProductName
 
                     }
+
+                </h2>
+                <p class="product-phone">Phone: @item.PhoneNumber</p>
+                <p class="product-description">
+                    @if (isRTL)
+                    {
+                        @if (item.DescriptionAr.Length >= 170)
+                        {
+                            @item.DescriptionAr.ToString().Substring(0, 170)
+
+                        }
+                        else
+                        {
+                            @item.DescriptionAr
+
+                        }
+                    }
+                    else
+                    {
+                        @if (item.Description.Length >= 170)
+                        {
+                            @item.Description.ToString().Substring(0, 170)
+
+                        }
+                        else
+                        {
+                            @item.Description
+
+                        }
+                    }
+                    
+                   
 
                 </p>
 
                 <p>
-                    @item.ProductName
+                    @if (isRTL)
+                    {
+                        @item.ProductNameAr
+
+                    }
+                    else
+                    {
+                        @item.ProductName
+
+                    }
                 </p>
                 <p class="product-price">
                     $
@@ -113,11 +156,19 @@
                 </p>
                 <div class="product-buttons">
                     <a href="
-                @item.Location"><button class="product-button-location">Go to Location</button></a>
-                    <button id="showptn" class="product-button-show">Show</button>
+                @item.Location"><button class="product-button-location">@localizer["Go to Location"]</button></a>
+                    <button id="showptn" class="product-button-show">@localizer["Show"]</button>
                 </div>
                 <span id="allDescription" style="display:none;">
-                    @item.Description
+                    @if (isRTL)
+                    {
+                        @item.DescriptionAr
+                        
+                    }
+                    else{
+                        @item.Description
+
+                    }
                 </span>
             </div>
 

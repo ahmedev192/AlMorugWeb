@@ -49,11 +49,21 @@
   "Email": "Email",
   "Password": "Password",
   "Confirm Password": "Confirm Password",
-  "Go To Location": "Go To Location",
+  "Go to Location": "Go To Location",
   "Show": "Show",
   "About Us": "About Us",
   "More": "More",
-  "Login": "Login"
+  "Login": "Login",
+  "Submit": "Submit",
+  "Create a New Project": "Create a New Project",
+  "Project Name": "Product Name In English",
+  "Project Name In Arabic": "Product Name In Arabic",
+  "Description In Arabic": "Description In Arabic",
+  "Create": "Create",
+  "Location": "Location",
+  "Phone Number": "Phone Number",
+  "Back to List": "Back to List"
+
 
 
 

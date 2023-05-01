@@ -57,10 +57,28 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ProductName)
+                    @if (isRTL)
+                    {
+                        @Html.DisplayFor(modelItem => item.ProductNameAr)
+
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.ProductName)
+
+                    }
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Description)
+                    @if (isRTL)
+                    {
+                        @Html.DisplayFor(modelItem => item.DescriptionAr)
+
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.Description)
+
+                    }
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.PhoneNumber)

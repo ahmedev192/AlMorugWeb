@@ -1,5 +1,12 @@
 ﻿@model AlMorugWeb.Models.ViewModels.ProductModel
+@using System.Globalization
+@using Microsoft.AspNetCore.Mvc.Localization
 
+@inject IViewLocalizer localizer
+
+@{
+    var isRTL = CultureInfo.CurrentCulture.Name.StartsWith("ar");
+}
 @{
     ViewData["Title"] = "Details";
 }
@@ -10,7 +17,19 @@
       href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 
 <section class="product-details">
-    <h1>Product Name</h1>
+    @if (isRTL)
+    {
+        <h1>@Model.ProductNameAr</h1>
+
+    }
+    else
+    {
+        <h1>@Model.ProductName</h1>
+
+    }
+
+
+
     <!-- slider -->
 
 
@@ -42,18 +61,27 @@
     <div class="product-description">
 
         <p class="Description">
-            Description:
-            @Html.DisplayFor(model => model.Description).
+            @localizer["Description"]:
+            @if (isRTL)
+            {
+                @Html.DisplayFor(model => model.DescriptionAr)
+
+            }
+            else
+            {
+                @Html.DisplayFor(model => model.Description)
+
+            }
         </p>
         <hr>
         <p class="price">
-            Price: $
+            @localizer["Price"]: $
             @Html.DisplayFor(model => model.Price)
 
         </p>
         <hr>
         <p class="number">
-            Phone Number:
+            @localizer["Phone Number"]:
             @Html.DisplayFor(model => model.PhoneNumber)
         </p>
     </div>

@@ -1,5 +1,12 @@
 ﻿@model AlMorugWeb.Models.Product
+@using System.Globalization
+@using Microsoft.AspNetCore.Mvc.Localization
 
+@inject IViewLocalizer localizer
+
+@{
+    var isRTL = CultureInfo.CurrentCulture.Name.StartsWith("ar");
+}
 @{
     ViewData["Title"] = "Delete";
 }
@@ -12,45 +19,64 @@
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ProductName)
+            @localizer[ @Html.DisplayNameFor(model => model.ProductName)]
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ProductName)
+            @if (isRTL)
+            {
+                @Html.DisplayFor(model => model.ProductNameAr)
+
+            }
+            else
+            {
+                @Html.DisplayFor(model => model.ProductName)
+
+            }
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
+            @localizer[ @Html.DisplayNameFor(model => model.Description)]
+
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Description)
+            @if (isRTL)
+            {
+                @Html.DisplayFor(model => model.DescriptionAr)
+
+            }
+            else
+            {
+                @Html.DisplayFor(model => model.Description)
+
+            }
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.PhoneNumber)
+            @localizer[ @Html.DisplayNameFor(model => model.PhoneNumber)]
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.PhoneNumber)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.IsInternal)
+            @localizer[ @Html.DisplayNameFor(model => model.IsInternal)]
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.IsInternal)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
+            @localizer[ @Html.DisplayNameFor(model => model.Price)]
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Price)
         </dd>
 
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Location)
+            @localizer[ @Html.DisplayNameFor(model => model.Location)]
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Location)
         </dd>
 
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.CreatedDateTime)
+            @localizer[ @Html.DisplayNameFor(model => model.CreatedDateTime)]
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.CreatedDateTime)
@@ -59,7 +85,7 @@
 
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="@localizer["Delete"]" class="btn btn-danger" /> |
+        <a asp-action="Index">@localizer["Back to List"]</a>
     </form>
 </div>

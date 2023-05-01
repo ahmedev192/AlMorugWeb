@@ -50,9 +50,20 @@
   "Email": "البريد الإلكتروني",
   "Password": "كلمة المرور",
   "Confirm Password": "تأكيد كلمة المرور",
-  "Go To Location": "الانتقال إلى الموقع",
+  "Go to Location": "الانتقال إلى الموقع",
   "Show": "عرض",
   "About Us": "من نحن",
   "More": "المزيد",
-  "Login": "تسجيل الدخول"
+  "Login": "تسجيل الدخول",
+  "Submit": "تسجيل الدخول",
+  "Create a New Project": "إنشاء مشروع جديد",
+  "Project Name": "اسم المنتج بالإنجليزية",
+  "Project Name In Arabic": "اسم المنتج بالعربية",
+  "Description In Arabic": "الوصف باللغة العربية",
+  "Location": "الموقع",
+  "Phone Number": "رقم الهاتف",
+  "Create": "إنشاء",
+  "Back to List":  "العوده الي القائمه الرئيسيه"
+
+
 }

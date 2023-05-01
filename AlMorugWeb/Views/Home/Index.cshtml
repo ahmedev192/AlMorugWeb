@@ -6,7 +6,9 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-
+@{
+    var isRTL = CultureInfo.CurrentCulture.Name.StartsWith("ar");
+}
 
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
@@ -14,6 +16,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+@if (isRTL)
+{
+    <html dir="rtl">
+    </html>
+    <link rel="stylesheet" href="~/css/site-ar.css" asp-append-version="true" />
+}
+else
+{
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+}
+
 <!-- start of body secation -->
 <div class="body">
     @*<h1>@ViewBag.wel    </h1>*@
@@ -120,14 +133,22 @@
 
     <div class="last2">
         <div class="lastRealEstat">
-            <img src="@Model.Products.OrderByDescending(u=>u.Id).FirstOrDefault().Gallery[0].URL" alt="last real estat">
+           @* @if (@Model.Products.OrderByDescending(u => u.Id).FirstOrDefault().Gallery[0].URL != null)
+            {
+                <img src="@Model.Products.OrderByDescending(u=>u.Id).FirstOrDefault().Gallery[0].URL" alt="last project">
+
+            }*@
             <div class="overlay">
                 <h2>@localizer["Some Title"]</h2>
                 <button class="cardbtn">@localizer["details"]</button>
             </div>
         </div>
         <div class="lastProject">
-            <img src="@Model.Realstates.OrderByDescending(u=>u.Id).FirstOrDefault().Gallery[0].URL" alt="last project">
+            @*@if (@Model.Realstates.OrderByDescending(u => u.Id).FirstOrDefault().Gallery[0].URL != null)
+            {
+                <img src="@Model.Realstates.OrderByDescending(u=>u.Id).FirstOrDefault().Gallery[0].URL" alt="last project">
+
+            }*@
             <div class="overlay">
                 <h2>@localizer["Some Title"]</h2>
                 <button class="cardbtn">@localizer["details"]</button>
@@ -144,11 +165,13 @@
     <div class="counter">
         <div class="projectsCounter">
             <h4>@localizer["Our Projects"]</h4>
-            <span class="count"> @Model.Products.Count()</span>
+            <span class="count"></span>
+            <span class="countnum" style="display:none">@Model.Products.Count()</span>
         </div>
         <div class="RealEstateCounter">
             <h4>@localizer["Our RealEstat"]</h4>
-            <span class="countreal">@Model.Realstates.Count()</span>
+            <span class="countreal"></span>
+            <span class="countrealnum" style="display:none">@Model.Realstates.Count()</span>
         </div>
 
     </div>
@@ -163,7 +186,5 @@
 
 </div>
 
-
-    </div>
-
+<script src="~/js/IndexJs.js"></script>
 

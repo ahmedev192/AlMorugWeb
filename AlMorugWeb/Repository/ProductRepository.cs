@@ -27,6 +27,8 @@ namespace AlMorugWeb.Repository
                 Location = model.Location,
                 CreatedDateTime = model.CreatedDateTime,
                 Price = model.Price,
+                DescriptionAr = model.DescriptionAr,
+                ProductNameAr = model.ProductNameAr,
             };
 
             newProduct.productGallery = new List<ProductGallery>();
@@ -69,6 +71,8 @@ namespace AlMorugWeb.Repository
                 objFromDb.CreatedDateTime = obj.CreatedDateTime;
                 objFromDb.IsInternal = obj.IsInternal;
                 objFromDb.Location = obj.Location;
+                objFromDb.DescriptionAr = obj.DescriptionAr;
+                objFromDb.ProductNameAr = obj.ProductNameAr;
 
                 objFromDb.productGallery = new List<ProductGallery>();
 
@@ -105,6 +109,8 @@ namespace AlMorugWeb.Repository
                       IsInternal = product.IsInternal,
                       Location = product.Location,
                       CreatedDateTime = product.CreatedDateTime,
+                      DescriptionAr = product.DescriptionAr,
+                      ProductNameAr = product.ProductNameAr,
                       Price = product.Price,
                       Gallery = product.productGallery.Select(g => new GalleryModel()
                       {
@@ -125,6 +131,8 @@ namespace AlMorugWeb.Repository
                       Description = product.Description,
                       IsInternal = product.IsInternal,
                       Location = product.Location,
+                      DescriptionAr= product.DescriptionAr,
+                      ProductNameAr= product.ProductNameAr,
                       CreatedDateTime = product.CreatedDateTime,
                       Price = product.Price,
                       Gallery = product.productGallery.Select(g => new GalleryModel()
@@ -145,6 +153,8 @@ namespace AlMorugWeb.Repository
                 Description = product.Description,
                 IsInternal = product.IsInternal,
                 Location = product.Location,
+                DescriptionAr= product.DescriptionAr,
+                ProductNameAr= product.ProductNameAr,
                 CreatedDateTime = product.CreatedDateTime,
                 Price = product.Price,
                 Gallery = product.productGallery.Select(g => new GalleryModel()
@@ -168,6 +178,8 @@ namespace AlMorugWeb.Repository
                      ProductName = product.ProductName,
                      Description = product.Description,
                      IsInternal = product.IsInternal,
+                     DescriptionAr = product.DescriptionAr,
+                     ProductNameAr= product.ProductNameAr,
                      Location = product.Location,
                      CreatedDateTime = product.CreatedDateTime,
                      Price = product.Price,
@@ -221,58 +233,6 @@ namespace AlMorugWeb.Repository
         }
 
 
-        //public  Index index()
-        //{
-        //    Product product = _context.Products.Where(u => u.IsInternal == true).OrderByDescending(u => u.Id).FirstOrDefault();
-        //    Product realstate = _context.Products.Where(u => u.IsInternal == false).OrderByDescending(u => u.Id).FirstOrDefault();
-
-
-        //    Index Data = new()
-
-        //    {
-        //        LastProduct = new()
-        //        {
-        //            Id = product.Id,
-        //            PhoneNumber = product.PhoneNumber,
-        //            ProductName = product.ProductName,
-        //            Description = product.Description,
-        //            IsInternal = product.IsInternal,
-        //            Location = product.Location,
-        //            CreatedDateTime = product.CreatedDateTime,
-        //            Price = product.Price,
-        //            Gallery = product.productGallery.Select(g => new GalleryModel()
-        //            {
-        //                Id = g.Id,
-        //                Name = g.Name,
-        //                URL = g.URL
-        //            }).ToList(),
-
-
-        //        },
-        //        LastRealstate = new()
-        //        {
-        //            Id = product.Id,
-        //            PhoneNumber = realstate.PhoneNumber,
-        //            ProductName = realstate.ProductName,
-        //            Description = realstate.Description,
-        //            IsInternal = realstate.IsInternal,
-        //            Location = realstate.Location,
-        //            CreatedDateTime = realstate.CreatedDateTime,
-        //            Price = realstate.Price,
-        //            Gallery = realstate.productGallery.Select(g => new GalleryModel()
-        //            {
-        //                Id = g.Id,
-        //                Name = g.Name,
-        //                URL = g.URL
-        //            }).ToList(),
-
-        //        },
-        //        ProductsCounter = _context.Products.Where(u => u.IsInternal == true).Count(),
-        //        RealStateCounter = _context.Products.Where(u => u.IsInternal == false).Count(),
-
-        //    };
-        //    return Data;
-        //}
 
 
     }

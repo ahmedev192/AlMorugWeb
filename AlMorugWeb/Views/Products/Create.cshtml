@@ -1,51 +1,60 @@
 ﻿
 @model AlMorugWeb.Models.ViewModels.ProductModel
+@using System.Globalization
+@using Microsoft.AspNetCore.Mvc.Localization
 
+@inject IViewLocalizer localizer
+
+@{
+    var isRTL = CultureInfo.CurrentCulture.Name.StartsWith("ar");
+}
 @{
     ViewData["Title"] = "Create";
 }
 <link rel="stylesheet" href="~/css/add.css" />
 
 
-<h1>Create a New Project</h1>
+<h1>@localizer["Create a New Project"]</h1>
 <hr />
-@if (ViewBag.IsSuccess == true)
-{
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>Congratulations</strong> You have added new Product successfully. <br />
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-}
+
 <div class="row">
     <div class="col-md-4">
         <form method="post" asp-action="Create" enctype="multipart/form-data" id="data">
             <div asp-validation-summary="All" class="text-danger"></div>
 
             <div class="form-group">
-                <label asp-for="ProductName" class="control-label"></label>
+                <label class="control-label">@localizer["Project Name"]</label>
                 <input asp-for="ProductName" class="form-control" />
                 <span asp-validation-for="ProductName" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label class="control-label">@localizer["Project Name In Arabic"]</label>
+                <input asp-for="ProductNameAr" class="form-control" />
+                <span asp-validation-for="ProductNameAr" class="text-danger"></span>
+            </div>
             <div >
-                <label asp-for="Description" class="control-label"></label>
+                <label class="control-label">@localizer["Description"]</label>
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
+            <div >
+                <label class="control-label">@localizer["Description In Arabic"]</label>
+                <input asp-for="DescriptionAr" class="form-control" />
+                <span asp-validation-for="DescriptionAr" class="text-danger"></span>
+            </div>
  
             <div >
-                <label asp-for="Location" class="control-label"></label>
+                <label  class="control-label">@localizer["Location"] </label>
                 <input asp-for="Location" class="form-control" />
                 <span asp-validation-for="Location" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PhoneNumber" class="control-label"></label>
+                <label  class="control-label">@localizer["Phone Number"] </label>
                 <input asp-for="PhoneNumber" class="form-control" />
                 <span asp-validation-for="PhoneNumber" class="text-danger"></span>
             </div>
             <div>
-                <label asp-for="Price"></label>
+                <label >@localizer["Price"] </label>
                 <input style="background-color:#FECE3E ; padding: 5px;margin-bottom: 10px ;width: 100%; " asp-for="Price" />
 
                 <span asp-validation-for="Price" class="text-danger"></span>
@@ -66,7 +75,7 @@
 
 
             <div >
-                <input type="submit" value="Create"  />
+                <input type="submit" value="@localizer["Create"]"  />
             </div>
         </form>
     </div>
